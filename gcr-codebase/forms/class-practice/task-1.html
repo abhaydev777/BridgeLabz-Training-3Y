@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-1-HTML-FORM</title>
+  </head>
+  <body>
+    <form action="">
+      <!-- personal details -->
+      <h2>Personal details:</h2>
+      <label for="name">Name:</label>
+      <input type="text" name="" id="name" />
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" name="" id="email" />
+      <br />
+      <label for="phone">Phone:</label>
+      <input type="tel" name="" id="phone" />
+      <br />
+      <label for="dob">Date of Birth:</label>
+      <input type="date" name="" id="dob" />
+      <br />
+      <label for="password">Password:</label>
+      <input type="password" name="" id="password" />
+
+      <!-- gender -->
+      <h2>Gender:</h2>
+      <input type="radio" name="gender" value="male" id="male" />
+      <label for="male">Male</label>
+      <input type="radio" name="gender" value="female" id="female" />
+      <label for="female">Female</label>
+
+      <!-- course -->
+      <br />
+      <h2>Course</h2>
+      <select name="course" id="course">
+        <option value="">Select Course</option>
+        <option value="b-tech">B-tech</option>
+        <option value="mca">MCA</option>
+        <option value="mba">MBA</option>
+        <option value="bca">BCA</option>
+      </select>
+
+      <!-- skills -->
+      <h2>Skills:</h2>
+      <input type="checkbox" value="java" id="java" />
+      <label for="java">Java</label>
+      <input type="checkbox" value="javascript" id="javascript" />
+      <label for="javascript">JavaScript</label>
+      <input type="checkbox" value="python" id="python" />
+      <label for="python">Python</label>
+
+      <!-- internship preference -->
+      <h2>Internship Preference:</h2>
+      <input
+        type="radio"
+        name="internship_preference"
+        value="full_time"
+        id="full_time"
+      />
+      <label for="full_time">Full-time</label>
+      <input
+        type="radio"
+        name="internship_preference"
+        value="part_time"
+        id="part_time"
+      />
+      <label for="part_time">Part-time</label>
+
+      <!-- resume upload -->
+      <h2>Resume Upload:</h2>
+      <input type="file" name="resume" id="resume" />
+
+      <!-- Cover Letter -->
+      <h2>Cover Letter:</h2>
+      <textarea
+        name="cover_letter"
+        id="cover_letter"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <!-- Submit and Reset buttons -->
+      <br />
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>
+
+## Task-1
+<!-- HTML Forms Task — Internship Application Form
+
+Problem Statement:
+Create an Internship Application Form for a student applying through an internship portal using HTML only. The form should collect the student's personal, educational, and internship-related information.
+
+Requirements:
+Personal details: Full Name, Email, Phone, Date of Birth, Password
+Gender using radio buttons — Male, Female, Other
+Course using a dropdown — CSE, IT, ECE, Mechanical
+Skills using checkboxes — Java, JavaScript, HTML, CSS, React
+Internship Preference using radio buttons
+Resume upload using a file input
+Cover Letter using a textarea
+Add Submit and Reset buttons
+Use proper <label> elements and correctly associate them with inputs using for and id
+Use appropriate name, value, placeholder, and required attributes wherever applicable. -->

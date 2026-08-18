@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+</head>
+<body>
+    <h1>Course Registration Form</h1>
+    
+    <form>
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Course Selection</legend>
+            <label for="course">Select Course:</label>
+            <select id="course" name="course">
+                <option value="">-- Select a Course --</option>
+                <option value="web-dev">Web Development</option>
+                <option value="data-science">Data Science</option>
+                <option value="python">Python Programming</option>
+                <option value="mobile-dev">Mobile Development</option>
+            </select>
+        </fieldset>
+    </form>
+
+    <h2>Available Course Schedules</h2>
+    <table border="1">
+        <tr>
+            <th>Course</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Instructor</th>
+        </tr>
+        <tr>
+            <td>Web Development</td>
+            <td>Monday</td>
+            <td>10:00 AM - 12:00 PM</td>
+            <td>Mr. Smith</td>
+        </tr>
+        <tr>
+            <td>Web Development</td>
+            <td>Wednesday</td>
+            <td>2:00 PM - 4:00 PM</td>
+            <td>Ms. Johnson</td>
+        </tr>
+        <tr>
+            <td>Data Science</td>
+            <td>Tuesday</td>
+            <td>10:00 AM - 12:00 PM</td>
+            <td>Dr. Brown</td>
+        </tr>
+        <tr>
+            <td>Python Programming</td>
+            <td>Thursday</td>
+            <td>3:00 PM - 5:00 PM</td>
+            <td>Mr. Davis</td>
+        </tr>
+        <tr>
+            <td>Mobile Development</td>
+            <td>Friday</td>
+            <td>11:00 AM - 1:00 PM</td>
+            <td>Ms. Wilson</td>
+        </tr>
+    </table>
+</body>
+</html>
