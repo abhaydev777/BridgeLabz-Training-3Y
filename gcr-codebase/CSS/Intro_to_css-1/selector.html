@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selectors In CSS</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;  
+        }
+
+        #para-1 {
+            background: crimson;
+            color: white;
+        }
+
+        .header {
+            background: limegreen;
+            color: white;
+            text-align: center;
+            font-size: 80px;
+        }
+
+        p, article {
+            color: yellowgreen;
+            font-size: 40px;
+        }
+
+        /* other 5 selectors */
+        /* Descendent Selector */
+        div p {
+            color: crimson;
+            font-size: 30px;
+        }
+
+        /* Child Selector */
+        div > p {
+            color: yellow;
+            font-size: 30px;
+        }
+
+        /* Adjacent Selector */
+        .title1 + .para-2 {
+            color: blueviolet;
+            font-size: 30px;
+        }
+
+        /* General Sibling Selector */
+        .title1 + .para-2 {
+            color: greenyellow;
+            font-size: 30px;
+        }
+
+        /* Attribute Selector [attribute] */
+        /* any type */
+        input[type] {
+            border: 1px solid #000000;
+        }
+
+        /* specific type */
+        input[type="text"] {
+            border: 1px solid #000000;
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <h2 class="header">Welcom to GLA University</h2>
+    <p id="para-1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ex modi at!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim officiis
+      doloribus aperiam esse!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nam itaque
+      excepturi eaque iste.
+    </p>
+    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quidem.</article>
+    <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <h1 class="title1">Title</h1>
+    <p class="para-2">Lorem ipsum dolor sit.</p>
+    <p class="para-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <input type="text">
+  </body>
+</html>

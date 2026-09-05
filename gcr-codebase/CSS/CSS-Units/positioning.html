@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML-Positioning</title>
+  </head>
+  <style>
+    .container {
+        border: 2px solid black;
+    }
+
+    /* static */
+    
+    img {
+        margin: 10px;
+    }
+
+    /* relative */
+    .img2 {
+        position: relative;
+        top: 30px;
+        left: 20px;
+    }
+
+    /* absoulute */
+
+    .img3 {
+        position: absolute;
+        top: 200px;
+        left: 100px;
+    }
+
+    /* fixed */
+    .img4 {
+        position: fixed;
+    }
+
+    .container {
+        position: relative;
+        height: 5000px;
+    }
+
+    /* sticky */
+    .box {
+        background-color: crimson;
+        height: 5000px;
+    }
+    .img5 {
+        position: sticky;
+        top: 100px;
+    }
+    
+  </style>
+  <body>
+    <div class="container">
+      <img
+        src="https://i.pinimg.com/736x/fc/89/76/fc8976f10582ebe623afe614e548a9bc.jpg"
+        alt="image1"
+        height="700px"
+        class="img1"
+      />
+
+      <img
+        src="https://i.pinimg.com/1200x/70/e7/9e/70e79e14ebcf687ecb763d5da90e0b5f.jpg"
+        alt="image2"
+        height="700px"
+        class="img2"
+      />
+
+      <img
+        src="https://i.pinimg.com/736x/48/bd/cc/48bdccdc4a6925cb11e8a06c50fe3336.jpg"
+        alt="image3"
+        height="700px"
+        class="img3"
+      />
+
+      <img
+        src="https://i.pinimg.com/736x/9f/37/f2/9f37f2944c2b8581324905dc871cb4f0.jpg"
+        alt="image4"
+        height="700px"
+        class="img4"
+      />
+
+      <div class="box">
+        <img
+        src="https://i.pinimg.com/1200x/c3/cd/7a/c3cd7a325209e1f83e0a806c7f0964b1.jpg"
+        alt="image5"
+        height="700px"
+        class="img5"
+      />
+      </div>
+    </div>
+  </body>
+</html>
