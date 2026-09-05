@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+:root { --header: 72px; --navy: #182a3a; --gold: #efb366; }
+body { margin: 0; background: #f2f5f4; color: #243746; font-family: Arial, sans-serif; }
+.dashboard-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; height: var(--header); display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; background: var(--navy); color: white; }
+.brand { color: white; font-size: 1.4rem; font-weight: bold; text-decoration: none; }
+.dashboard-header p { margin: 0; color: #d5e0e4; }
+.sidebar { position: fixed; top: var(--header); left: 0; width: 240px; height: calc(100vh - var(--header)); padding: 2rem 1.2rem; background: #213f4d; color: white; }
+.sidebar-title { margin: 0 0 1rem; color: var(--gold); font-size: .8rem; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; }
+.sidebar nav { display: flex; flex-direction: column; gap: .5rem; }
+.sidebar a { padding: .8rem 1rem; border-radius: 5px; color: #dce8e9; text-decoration: none; }
+.sidebar a:hover, .sidebar a.active { background: var(--gold); color: var(--navy); }
+.dashboard-main { min-height: 100vh; margin-left: 240px; padding: calc(var(--header) + 4rem) 5% 4rem; }
+.dashboard-intro { margin-bottom: 3rem; }
+.eyebrow { color: #b56c35; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; }
+h1 { margin: .5rem 0; font-size: clamp(2.5rem, 5vw, 4.5rem); }
+.dashboard-cards { display: flex; gap: 1.5rem; }
+.dashboard-card { flex: 1; padding: 2rem; border-radius: 12px; background: white; box-shadow: 0 12px 28px rgba(36, 55, 70, .12); }
+.card-icon { display: inline-grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; background: #f7d6a3; color: #6a4026; font-weight: bold; }
+.dashboard-card h2 { margin-bottom: .5rem; }
+.dashboard-card p { color: #6c7c84; }
+.dashboard-card strong { display: block; margin-top: 2rem; font-size: .9rem; }
+.progress { height: 8px; margin-top: .7rem; border-radius: 10px; background: #e3ebea; overflow: hidden; }
+.progress span { display: block; height: 100%; border-radius: inherit; background: #b56c35; }
+@media (max-width: 650px) { .dashboard-header { padding: 0 1rem; } .sidebar { position: static; width: auto; height: auto; padding: calc(var(--header) + 1.5rem) 1rem 1rem; } .sidebar nav { flex-direction: row; flex-wrap: wrap; } .dashboard-main { margin-left: 0; padding: 3rem 1rem; } .dashboard-cards { flex-direction: column; } }

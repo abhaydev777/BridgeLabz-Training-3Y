@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+body { margin: 0; color: #243447; font-family: Georgia, serif; background: #f5f1e8; }
+.page-header { padding: 1.5rem 6%; display: flex; justify-content: space-between; align-items: center; background: #243447; color: white; }
+.page-header h1 { margin: 0; font-size: 2rem; }
+.page-header nav { display: flex; gap: 1.2rem; }
+.page-header a { color: white; text-decoration: none; }
+main { width: 100%; }
+section { width: 100%; }
+.destination-hero { min-height: 76vh; padding: 18vh 10%; color: white; background: linear-gradient(110deg, rgba(20, 45, 55, .9), rgba(20, 45, 55, .2)), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1800&q=85') center / cover fixed; }
+.destination-hero h2 { max-width: 10em; margin: 0 0 1rem; font-size: clamp(2.6rem, 7vw, 6rem); line-height: .98; }
+.destination-hero p:not(.label) { max-width: 34rem; font-size: 1.2rem; line-height: 1.6; }
+.label { color: #f6bd60; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; }
+.content-section { min-height: 48vh; padding: 8rem 12%; border-top: 8px solid #f5f1e8; }
+.content-section h2, .content-section h3 { margin-top: 0; font-weight: 700; }
+.content-section h2 { font-size: 3rem; }
+.content-section h3 { font-size: 2.2rem; }
+.content-section p { max-width: 38rem; font-size: 1.15rem; line-height: 1.8; }
+.culture-section { background: radial-gradient(circle at 80% 30%, #f6bd60, #e07a5f 60%, #8f3d56); color: white; }
+.nature-section { color: white; background: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1800&q=85') center / cover fixed; }
+.food-section { background: linear-gradient(135deg, #fff3d6, #f4a261); }
+.plan-section { background: #d9ed92; }
+footer { padding: 2rem 10%; background: #243447; color: white; }
+@media (max-width: 650px) { .page-header { display: block; } .page-header nav { margin-top: 1rem; flex-wrap: wrap; } .destination-hero { min-height: 70vh; padding: 12vh 8%; background-attachment: scroll; } .nature-section { background-attachment: scroll; } .content-section { padding: 5rem 8%; } }

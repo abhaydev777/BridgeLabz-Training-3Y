@@ -1,0 +1,12 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #e7e1d5; color: #292822; font-family: Georgia, serif; }
+.newspaper-page { max-width: 1200px; margin: 0 auto; padding: 2rem 5%; }
+.newspaper-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 1rem; border-bottom: 3px solid #292822; }
+.masthead { margin: 0; font-size: clamp(1.4rem, 4vw, 2.8rem); font-weight: bold; letter-spacing: .06em; }
+.newspaper-article { margin-top: 2rem; padding: 2rem; background: #f8f4eb; }
+.newspaper-article h1 { column-span: all; margin: 0 0 2rem; border-bottom: 1px solid #aaa28f; padding-bottom: 1rem; font-size: clamp(2.3rem, 6vw, 5rem); line-height: 1; }
+.newspaper-article { column-count: 3; column-gap: 2rem; column-rule: 1px solid #ccc; }
+.newspaper-article p { margin: 0 0 1.4rem; font-size: 1.05rem; line-height: 1.7; text-align: justify; }
+.article-image { float: left; width: 45%; margin: 0 1rem 1rem 0; }
+@media (max-width: 800px) { .newspaper-article { column-count: 2; } }
+@media (max-width: 550px) { .newspaper-header { display: block; } .newspaper-article { column-count: 1; padding: 1.2rem; } }

@@ -1,0 +1,15 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #eef2f3; color: #1d2935; font-family: Arial, sans-serif; }
+.team-page { max-width: 1150px; margin: 0 auto; padding: 5rem 5%; }
+.team-heading { max-width: 620px; margin-bottom: 3rem; }
+.eyebrow { margin: 0 0 .8rem; color: #d95d39; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; }
+h1 { margin: 0 0 .8rem; font-size: clamp(2.4rem, 5vw, 4.5rem); }
+.team-heading > p:last-child { color: #5b6870; font-size: 1.1rem; }
+.team-list { display: flex; gap: 1.5rem; align-items: stretch; }
+.team-card { flex: 1; margin: 0; padding: 1.5rem; border: 1px solid #d2dce0; border-radius: 14px; background: white; box-shadow: 0 14px 30px rgba(29, 41, 53, .1); }
+.team-card img { width: 100%; height: 230px; object-fit: cover; border-radius: 8px; }
+.team-card h2 { margin: 1.3rem 0 .3rem; font-size: 1.5rem; }
+.team-card p { line-height: 1.6; }
+.team-card .role { margin: 0; color: #d95d39; font-weight: bold; }
+.team-lead { border: 3px solid #d95d39; background: #fff1e8; transform: translateY(-12px); }
+@media (max-width: 600px) { .team-list { flex-direction: column; } .team-lead { transform: none; } }

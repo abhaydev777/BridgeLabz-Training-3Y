@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Dashboard</title>
+    <link rel="stylesheet" href="style08.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <a class="brand" href="#">Studyboard</a>
+        <p>Welcome back, Abhay</p>
+    </header>
+    <aside class="sidebar">
+        <p class="sidebar-title">Workspace</p>
+        <nav aria-label="Dashboard navigation">
+            <a class="active" href="#overview">Overview</a>
+            <a href="#courses">My courses</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#settings">Settings</a>
+        </nav>
+    </aside>
+    <main class="dashboard-main" id="overview">
+        <section class="dashboard-intro">
+            <p class="eyebrow">Saturday, September 5</p>
+            <h1>Keep your momentum.</h1>
+            <p>Two focused sessions today will move your CSS practice forward.</p>
+        </section>
+        <section class="dashboard-cards" id="courses">
+            <article class="dashboard-card"><span class="card-icon">01</span><h2>CSS Basics</h2><p>Box model, spacing, and positioning</p><strong>75% complete</strong><div class="progress"><span style="width: 75%"></span></div></article>
+            <article class="dashboard-card" id="tasks"><span class="card-icon">02</span><h2>Today's tasks</h2><p>Finish Assignment 5 layouts</p><strong>4 of 6 completed</strong><div class="progress"><span style="width: 66%"></span></div></article>
+        </section>
+    </main>
+</body>
+</html>
