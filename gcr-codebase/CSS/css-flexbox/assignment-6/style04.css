@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  background: #0f1419;
+  color: #e6edf3;
+  min-height: 100vh;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.dash-header {
+  grid-column: 1 / -1;
+  background: #1c2430;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #2a3544;
+}
+
+.dash-header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.dash-header p {
+  color: #8b9cb3;
+  font-size: 0.9rem;
+}
+
+.sidebar {
+  background: #1c2430;
+  border-radius: 8px;
+  border: 1px solid #2a3544;
+  padding: 1.25rem 0;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar a {
+  color: #a8b8cc;
+  text-decoration: none;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.sidebar a:hover {
+  background: #243040;
+  color: #fff;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-content: start;
+}
+
+.card {
+  background: #1c2430;
+  border: 1px solid #2a3544;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.card.featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #1c2430 0%, #1e3a4a 100%);
+  border-color: #3a6a7a;
+}
+
+.card h2 {
+  font-size: 1rem;
+  color: #8b9cb3;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.metric {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5ec4c4;
+  margin-bottom: 0.5rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #7a8fa3;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .card.featured {
+    grid-column: span 1;
+  }
+}

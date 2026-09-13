@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Responsive Blog Layout</title>
+  <link rel="stylesheet" href="style06.css">
+</head>
+<body>
+  <div class="blog-layout">
+    <header class="blog-header">
+      <h1>Dev Notes Blog</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Articles</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
+
+    <aside class="blog-sidebar">
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#">CSS Layout</a></li>
+        <li><a href="#">Flexbox</a></li>
+        <li><a href="#">CSS Grid</a></li>
+        <li><a href="#">Responsive Design</a></li>
+        <li><a href="#">UI Tips</a></li>
+      </ul>
+    </aside>
+
+    <main class="blog-main">
+      <article class="post">
+        <img
+          src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=300&fit=crop"
+          alt="Laptop with code on screen">
+        <h2>Getting Comfortable with Flexbox</h2>
+        <p>
+          Flexbox makes one-dimensional layouts straightforward. Learn how
+          justify-content and align-items work together to center content
+          and distribute space evenly across rows or columns.
+        </p>
+      </article>
+      <article class="post">
+        <img
+          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=300&fit=crop"
+          alt="Code editor on monitor">
+        <h2>Why Grid Areas Matter</h2>
+        <p>
+          Named grid areas keep complex page structures readable. Define
+          header, sidebar, main, and footer once, then rearrange them with
+          a media query when the viewport shrinks.
+        </p>
+      </article>
+    </main>
+
+    <footer class="blog-footer">
+      <p>Contact: abhay@example.com | &copy; 2026 Abhay Pratap Singh</p>
+    </footer>
+  </div>
+</body>
+</html>

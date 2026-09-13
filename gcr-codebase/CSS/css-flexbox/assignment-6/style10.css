@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f4f1ec;
+  color: #1f2a30;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 2rem;
+  background: #1f3a45;
+  color: #f4f1ec;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.site-header a {
+  color: #b8cfd6;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.site-header a:hover {
+  color: #fff;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  flex: 1;
+}
+
+.article {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid #e0d9d0;
+}
+
+.hero-title {
+  font-size: 1.85rem;
+  margin-bottom: 1rem;
+  color: #1f3a45;
+  animation: fadeUp 0.9s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro {
+  line-height: 1.7;
+  color: #4a5560;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.feature-box {
+  flex: 1;
+  background: #eef4f6;
+  border: 1px solid #d0dde2;
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.feature-box h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: #1f3a45;
+}
+
+.feature-box p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #556068;
+}
+
+.sidebar {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e0d9d0;
+  height: fit-content;
+}
+
+.sidebar h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: #1f3a45;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #eee8e0;
+  font-size: 0.92rem;
+  color: #4a5560;
+}
+
+.sidebar li:last-child {
+  border-bottom: none;
+}
+
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.15rem;
+  background: #1f3a45;
+  color: #9ab0b8;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.85rem;
+    text-align: center;
+  }
+
+  .page-grid {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+}
