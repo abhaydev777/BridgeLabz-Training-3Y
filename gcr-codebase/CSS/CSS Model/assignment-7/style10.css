@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
+    background: #f0f4f8;
+    color: #2d3748;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background: #1a365d;
+    padding: 0 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-list a {
+    display: block;
+    padding: 14px 22px;
+    color: #e2e8f0;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+}
+
+.nav-list a:hover {
+    background: #2b6cb0;
+    border-color: #63b3ed;
+    color: #ffffff;
+}
+
+.nav-list a.active {
+    background: #2c5282;
+    border-bottom: 3px solid #f6ad55;
+    color: #ffffff;
+}
+
+.nav-list a:focus {
+    outline: 2px solid #f6ad55;
+    outline-offset: 3px;
+}
+
+main {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    width: 100%;
+}
+
+section {
+    margin-bottom: 36px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+section h1 {
+    font-size: 1.8rem;
+    color: #1a365d;
+    margin-bottom: 12px;
+}
+
+section h2 {
+    font-size: 1.4rem;
+    color: #2b6cb0;
+    margin-bottom: 10px;
+}
+
+section p {
+    line-height: 1.7;
+    color: #4a5568;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1a365d;
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 0;
+    }
+
+    .nav-list a {
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+    }
+
+    .nav-list a.active {
+        border-bottom: none;
+        border-left: 4px solid #f6ad55;
+    }
+}

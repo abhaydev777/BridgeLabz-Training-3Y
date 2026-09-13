@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abhay Pratap Singh">
+    <title>Question 8 - Box Model Exploration</title>
+    <link rel="stylesheet" href="style08.css">
+</head>
+<body>
+    <header>
+        <h1>Box Model Exploration</h1>
+        <p>Visual layers and content-box vs border-box comparison</p>
+    </header>
+
+    <main>
+        <section class="diagram-section">
+            <h2>Box Model Layers</h2>
+            <div class="box-model">
+                <div class="margin-layer">
+                    <span class="layer-label">Margin</span>
+                    <div class="border-layer">
+                        <span class="layer-label">Border</span>
+                        <div class="padding-layer">
+                            <span class="layer-label">Padding</span>
+                            <div class="content-layer">
+                                <span class="layer-label">Content</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="compare-section">
+            <h2>content-box vs border-box</h2>
+            <div class="compare-row">
+                <div class="demo content-box-demo">
+                    <h3>content-box (default)</h3>
+                    <p>width: 200px + padding + border = larger total size</p>
+                    <div class="sized-box content-box">
+                        200px content
+                    </div>
+                </div>
+
+                <div class="demo border-box-demo">
+                    <h3>border-box</h3>
+                    <p>width: 200px includes padding and border</p>
+                    <div class="sized-box border-box">
+                        200px total
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Assignment 7 - Question 8 | Abhay Pratap Singh</p>
+    </footer>
+</body>
+</html>

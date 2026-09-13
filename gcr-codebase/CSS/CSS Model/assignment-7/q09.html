@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abhay Pratap Singh">
+    <title>Question 9 - Outline and Focus Styling</title>
+    <link rel="stylesheet" href="style09.css">
+</head>
+<body>
+    <header>
+        <h1>Outline and Focus Styling Form</h1>
+        <p>Different outline styles and focus states for form fields</p>
+    </header>
+
+    <main>
+        <form class="contact-form">
+            <div class="field">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" class="outline-solid" placeholder="Your full name">
+                <span class="hint">Solid outline on focus</span>
+            </div>
+
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="outline-dashed" placeholder="you@example.com">
+                <span class="hint">Dashed outline on focus</span>
+            </div>
+
+            <div class="field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="outline-dotted" placeholder="+91 98765 43210">
+                <span class="hint">Dotted outline with offset</span>
+            </div>
+
+            <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="outline-solid" rows="5" placeholder="Write your message here..."></textarea>
+                <span class="hint">Focus to see the outline change</span>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Assignment 7 - Question 9 | Abhay Pratap Singh</p>
+    </footer>
+</body>
+</html>

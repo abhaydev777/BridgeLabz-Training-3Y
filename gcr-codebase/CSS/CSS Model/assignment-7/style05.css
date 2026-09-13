@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Courier New", Courier, monospace;
+    background: #f7fafc;
+    color: #2d3748;
+    padding: 30px 20px;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    color: #1a365d;
+    margin-bottom: 6px;
+}
+
+header p {
+    font-family: Georgia, serif;
+    color: #718096;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+section h2 {
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: #2b6cb0;
+}
+
+/* Attribute selector: targets only text inputs */
+input[type="text"] {
+    border: 2px solid #3182ce;
+    background: #ebf8ff;
+}
+
+/* Attribute selector: links whose href starts with https */
+a[href^="https"] {
+    color: #276749;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Descendant combinator: any label inside form */
+form label {
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+form input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+/* Pseudo-class: highlight focused input */
+form input:focus {
+    outline: 2px solid #805ad5;
+    outline-offset: 2px;
+    border-color: #805ad5;
+}
+
+.links-section a {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 8px;
+    color: #4a5568;
+}
+
+/* Pseudo-class: hover effect on links */
+.links-section a:hover {
+    color: #e53e3e;
+}
+
+.demo-list {
+    list-style: none;
+}
+
+/* Pseudo-element: custom bullet before each list item */
+.demo-list li::before {
+    content: "▸ ";
+    color: #3182ce;
+    font-weight: bold;
+}
+
+/* Pseudo-element: accent mark after each list item */
+.demo-list li::after {
+    content: " ·";
+    color: #a0aec0;
+}
+
+.demo-list li {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+/* Pseudo-class: style every odd child */
+.demo-list li:nth-child(odd) {
+    background: #edf2f7;
+}
+
+/* Pseudo-class: style every even child */
+.demo-list li:nth-child(even) {
+    background: #e6fffa;
+}
+
+/* Pseudo-class: first child gets a stronger look */
+.demo-list li:nth-child(1) {
+    border-left: 4px solid #3182ce;
+}
+
+/* Pseudo-class: hover on list items */
+.demo-list li:hover {
+    background: #feebc8;
+}
+
+/* Child combinator: only direct children p of .parent */
+.parent > p {
+    color: #2b6cb0;
+    margin-bottom: 8px;
+}
+
+/* Descendant combinator: any p inside .nested */
+.nested p {
+    color: #805ad5;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+/* Next sibling combinator: p immediately after .intro */
+.intro + p {
+    background: #faf089;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+/* Subsequent sibling combinator: all p after .intro */
+.intro ~ span {
+    display: block;
+    margin-top: 10px;
+    color: #c53030;
+    font-size: 0.85rem;
+}
+
+.parent {
+    padding: 12px;
+    border: 1px dashed #a0aec0;
+    border-radius: 6px;
+}
+
+.nested {
+    margin: 10px 0;
+    padding-left: 16px;
+    border-left: 3px solid #d6bcfa;
+}
+
+footer {
+    text-align: center;
+    margin-top: 10px;
+    color: #a0aec0;
+    font-size: 0.85rem;
+    font-family: Georgia, serif;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abhay Pratap Singh">
+    <title>Question 5 - Advanced CSS Selectors</title>
+    <link rel="stylesheet" href="style05.css">
+</head>
+<body>
+    <header>
+        <h1>Advanced CSS Selectors Webpage</h1>
+        <p>Attribute selectors, pseudo-classes, pseudo-elements, and combinators</p>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Attribute Selectors</h2>
+            <form>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password">
+            </form>
+        </section>
+
+        <section class="links-section">
+            <h2>Links with Attribute Selectors</h2>
+            <p>
+                <a href="https://www.w3.org">W3C Official Site (HTTPS)</a>
+                <a href="http://example.com">Example HTTP Link</a>
+                <a href="about.html">Relative Page Link</a>
+            </p>
+        </section>
+
+        <section class="list-section">
+            <h2>List with Pseudo-classes and Pseudo-elements</h2>
+            <ul class="demo-list">
+                <li>First item — targeted by :nth-child(1)</li>
+                <li>Second item — gets a different background</li>
+                <li>Third item — odd child styling</li>
+                <li>Fourth item — even child styling</li>
+                <li>Fifth item — hover over any item</li>
+            </ul>
+        </section>
+
+        <section class="combinators-section">
+            <h2>Combinator Examples</h2>
+            <div class="parent">
+                <p class="intro">This is a direct child paragraph of .parent</p>
+                <div class="nested">
+                    <p>This nested paragraph is a descendant, not a direct child.</p>
+                </div>
+                <p class="after-intro">This paragraph comes right after .intro (next sibling)</p>
+                <p>This paragraph is a subsequent sibling of .intro</p>
+                <span>Extra span inside parent</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Assignment 7 - Question 5 | Abhay Pratap Singh</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #faf8f5;
+    color: #2c2c2c;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    background: #2c3e50;
+    color: #f5f0e8;
+}
+
+header h1 {
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    color: #b0bec5;
+}
+
+main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.heading-light {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: #34495e;
+    margin-bottom: 20px;
+    letter-spacing: 0.03em;
+}
+
+.heading-bold {
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #1a252f;
+    margin: 32px 0 18px;
+    letter-spacing: 0.02em;
+}
+
+article p {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 1.05rem;
+}
+
+/* Drop cap on the first letter of paragraphs */
+article > p::first-letter {
+    font-size: 3.2rem;
+    font-weight: 700;
+    float: left;
+    line-height: 0.85;
+    padding-right: 8px;
+    padding-top: 4px;
+    color: #c0392b;
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Bold emphasis on the first line */
+article > p::first-line {
+    font-weight: 700;
+    color: #1a252f;
+}
+
+.body-medium {
+    font-weight: 600;
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.body-heavy {
+    font-weight: 700;
+    font-size: 1.02rem;
+}
+
+strong {
+    color: #1a5276;
+    background: #d6eaf8;
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+em {
+    color: #6c3483;
+    font-style: italic;
+    background: #f5eef8;
+    padding: 1px 4px;
+}
+
+mark {
+    background: #f9e79f;
+    color: #7d6608;
+    padding: 2px 5px;
+    border-radius: 2px;
+}
+
+.note {
+    margin-top: 30px;
+    padding: 18px 20px;
+    border-left: 4px solid #2980b9;
+    background: #eaf2f8;
+}
+
+.note-text {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+}
+
+.note-text::first-letter {
+    font-size: inherit;
+    float: none;
+    padding: 0;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.note-text::first-line {
+    font-weight: inherit;
+    color: inherit;
+}
+
+footer {
+    text-align: center;
+    padding: 24px;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}

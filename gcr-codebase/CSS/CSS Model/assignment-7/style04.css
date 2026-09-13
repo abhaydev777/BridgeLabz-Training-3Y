@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(160deg, #e8eef5 0%, #d4dde8 100%);
+    color: #2d3748;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #1a365d;
+    text-shadow: 2px 2px 4px rgba(26, 54, 93, 0.2);
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #718096;
+}
+
+.card-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px 24px;
+    width: 260px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.role {
+    color: #4a5568;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.card p:last-child {
+    font-size: 0.88rem;
+    color: #718096;
+    line-height: 1.5;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.avatar-1 {
+    background: #3182ce;
+}
+
+.avatar-2 {
+    background: #38a169;
+}
+
+.avatar-3 {
+    background: #dd6b20;
+}
+
+.card-soft {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-soft:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.card-medium {
+    box-shadow: 4px 6px 16px rgba(49, 130, 206, 0.25);
+}
+
+.card-medium:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 14px 32px rgba(49, 130, 206, 0.4);
+}
+
+.card-deep {
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.15),
+        0 20px 40px rgba(221, 107, 32, 0.2);
+}
+
+.card-deep:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 8px 12px rgba(0, 0, 0, 0.12),
+        0 18px 36px rgba(0, 0, 0, 0.2),
+        0 28px 50px rgba(221, 107, 32, 0.3);
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #718096;
+    font-size: 0.9rem;
+}

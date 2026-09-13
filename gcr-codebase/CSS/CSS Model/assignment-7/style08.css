@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+    background: #edf2f7;
+    color: #2d3748;
+    min-height: 100vh;
+    padding: 30px 16px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+header h1 {
+    font-size: 1.9rem;
+    color: #1a365d;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: #718096;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.diagram-section,
+.compare-section {
+    width: 100%;
+    max-width: 720px;
+    text-align: center;
+}
+
+.diagram-section h2,
+.compare-section h2 {
+    margin-bottom: 24px;
+    color: #2b6cb0;
+    font-size: 1.3rem;
+}
+
+.box-model {
+    display: flex;
+    justify-content: center;
+}
+
+.margin-layer {
+    background: #fc8181;
+    padding: 28px;
+    outline: 2px dashed #c53030;
+}
+
+.border-layer {
+    background: #f6e05e;
+    padding: 20px;
+    border: 8px solid #d69e2e;
+}
+
+.padding-layer {
+    background: #68d391;
+    padding: 24px;
+    outline: 2px solid #276749;
+}
+
+.content-layer {
+    background: #63b3ed;
+    padding: 30px 50px;
+    outline: 2px solid #2b6cb0;
+    color: #1a365d;
+    font-weight: bold;
+}
+
+.layer-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    color: #1a202c;
+}
+
+.compare-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.demo {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.demo h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #2d3748;
+}
+
+.demo p {
+    font-size: 0.8rem;
+    color: #718096;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.sized-box {
+    width: 200px;
+    height: 80px;
+    padding: 20px;
+    border: 10px solid #4a5568;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+.content-box {
+    box-sizing: content-box;
+    background: #fed7d7;
+    border-color: #e53e3e;
+}
+
+.border-box {
+    box-sizing: border-box;
+    background: #c6f6d5;
+    border-color: #38a169;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #a0aec0;
+    font-size: 0.85rem;
+}
