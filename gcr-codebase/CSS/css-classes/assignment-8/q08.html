@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abhay Pratap Singh">
+    <title>Q8 - Box-Sizing Comparison</title>
+    <link rel="stylesheet" href="style08.css">
+</head>
+<body>
+    <header>
+        <h1>Box-Sizing Comparison</h1>
+        <p>Same width, padding, and border — different sizing models.</p>
+    </header>
+
+    <main>
+        <section class="boxes">
+            <div class="box content-box">
+                <h2>content-box</h2>
+                <p>width: 250px<br>padding: 30px<br>border: 10px</p>
+                <p class="total">Total width = 250 + 60 + 20 = 330px</p>
+            </div>
+
+            <div class="box border-box">
+                <h2>border-box</h2>
+                <p>width: 250px<br>padding: 30px<br>border: 10px</p>
+                <p class="total">Total width stays 250px</p>
+            </div>
+        </section>
+
+        <section class="explanation">
+            <h2>What's the difference?</h2>
+            <p>
+                With <strong>content-box</strong> (the browser default), width only covers the content area.
+                Padding and border are added on top, so the element grows wider than 250px.
+            </p>
+            <p>
+                With <strong>border-box</strong>, width includes padding and border. The outer size stays
+                fixed at 250px, which makes layout calculations much more predictable.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Abhay Pratap Singh</p>
+    </footer>
+</body>
+</html>

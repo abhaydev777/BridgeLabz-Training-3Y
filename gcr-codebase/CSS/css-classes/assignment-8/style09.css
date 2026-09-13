@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(160deg, #ebf4ff 0%, #faf5ff 100%);
+    color: #1a202c;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1.5rem 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.35rem;
+}
+
+header p {
+    color: #718096;
+    font-size: 0.95rem;
+}
+
+.effects-row {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.action-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.5rem;
+    width: 220px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.action-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+.action-card:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.action-card.accent {
+    background: linear-gradient(145deg, #ebf8ff, #fff);
+    border: 1px solid #bee3f8;
+}
+
+.action-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #2b6cb0;
+}
+
+.action-card p {
+    font-size: 0.85rem;
+    color: #718096;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+}
+
+.card-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #2b6cb0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.card-btn:hover {
+    background: #2c5282;
+}
+
+.card-btn:active {
+    transform: scale(0.95);
+}
+
+.icon-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1.1rem 1.3rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-badge:hover {
+    transform: translateY(-6px) rotate(-3deg) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+}
+
+.icon-badge:active {
+    transform: scale(0.95) rotate(0deg);
+}
+
+.icon-badge.alt:hover {
+    transform: translateY(-6px) rotate(3deg) scale(1.05);
+}
+
+.icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.badge-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.pill {
+    display: inline-block;
+    padding: 0.45rem 1.1rem;
+    background: #667eea;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.35);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.pill:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 18px rgba(102, 126, 234, 0.45);
+}
+
+.pill:active {
+    transform: translateY(1px) scale(0.96);
+}
+
+.pill-green {
+    background: #38a169;
+    box-shadow: 0 3px 10px rgba(56, 161, 105, 0.35);
+}
+
+.pill-green:hover {
+    box-shadow: 0 8px 18px rgba(56, 161, 105, 0.45);
+}
+
+.pill-orange {
+    background: #dd6b20;
+    box-shadow: 0 3px 10px rgba(221, 107, 32, 0.35);
+}
+
+.pill-orange:hover {
+    box-shadow: 0 8px 18px rgba(221, 107, 32, 0.45);
+}
+
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+    color: #718096;
+}

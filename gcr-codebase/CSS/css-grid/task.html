@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS Grid Browser Layouts</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		:root {
+			--frame: #2d3448;
+			--coral: #ff5d5d;
+			--peach: #ff9b61;
+			--teal: #16ad96;
+			--mint: #36ceb5;
+			--page: #151515;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--page);
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.browser-grid {
+			width: min(1028px, calc(100% - 32px));
+			padding: 10px;
+			border: 1px solid #eeeeeb;
+			margin: auto;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 18px 20px;
+			background: #eeeeeb;
+		}
+
+		.browser {
+			min-width: 0;
+			height: 166px;
+			padding: 0;
+			border: 10px solid var(--frame);
+			border-radius: 1px;
+			background: var(--frame);
+		}
+
+		.browser-bar {
+			height: 19px;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+			margin: 0;
+			padding: 0 1px;
+			background: var(--frame);
+		}
+
+		.dot {
+			width: 6px;
+			height: 6px;
+			display: block;
+			border-radius: 50%;
+		}
+
+		.dot.red {
+			background: #ff6257;
+		}
+
+		.dot.yellow {
+			background: #f8bd4f;
+		}
+
+		.dot.green {
+			background: #25c9ad;
+		}
+
+		.address-bar {
+			height: 7px;
+			flex: 1;
+			margin-left: 4px;
+			border-radius: 2px;
+			background: #f2f3f2;
+		}
+
+		.mockup {
+			height: 127px;
+			display: grid;
+			gap: 8px;
+			background: var(--frame);
+		}
+
+		.block {
+			min-width: 0;
+			min-height: 0;
+			border-radius: 1px;
+		}
+
+		.coral {
+			background: var(--coral);
+		}
+
+		.peach {
+			background: var(--peach);
+		}
+
+		.teal {
+			background: var(--teal);
+		}
+
+		.mint {
+			background: var(--mint);
+		}
+
+		/* Card 1 */
+		.layout-one {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+		}
+
+		/* Card 2 */
+		.layout-two {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+		}
+
+		.layout-two .tall {
+			grid-column: 3;
+			grid-row: 1 / span 2;
+		}
+
+		.layout-two .wide {
+			grid-column: span 2;
+		}
+
+		/* Card 3 */
+		.layout-three {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+
+		.layout-three .full {
+			grid-column: 1 / -1;
+		}
+
+		.layout-three .wide {
+			grid-column: span 2;
+		}
+
+		/* Card 4 */
+		.layout-four {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+
+		.layout-four .wide {
+			grid-column: 1 / -1;
+		}
+
+		.layout-four .middle-wide {
+			grid-column: span 3;
+		}
+
+		/* Card 5 */
+		.layout-five {
+			grid-template-columns: repeat(6, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+
+		/* Card 6 */
+		.layout-six {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(5, 1fr);
+		}
+
+		.layout-six .wide {
+			grid-column: span 2;
+		}
+
+		.layout-six .large {
+			grid-column: span 2;
+			grid-row: span 2;
+		}
+
+		.layout-six .bar {
+			grid-column: span 2;
+		}
+
+		/* Card 7 */
+		.layout-seven {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+
+		.layout-seven .large {
+			grid-column: span 2;
+			grid-row: 2 / span 2;
+		}
+
+		.layout-seven .top-wide {
+			grid-column: span 2;
+		}
+
+		/* Card 8 */
+		.layout-eight {
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+
+		.layout-eight .wide {
+			grid-column: span 3;
+		}
+
+		.layout-eight .full {
+			grid-column: 1 / -1;
+		}
+
+		/* Card 9 */
+		.layout-nine {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+
+		.layout-nine .full {
+			grid-column: 1 / -1;
+		}
+
+		.layout-nine .tall {
+			grid-row: 2 / span 2;
+		}
+
+		.layout-nine .wide {
+			grid-column: span 2;
+		}
+
+		@media (max-width: 800px) {
+			body {
+				padding: 16px 0;
+			}
+
+			.browser-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 520px) {
+			body {
+				padding: 10px 0;
+			}
+
+			.browser-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main class="browser-grid">
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-one">
+				<div class="block coral"></div><div class="block peach"></div><div class="block peach"></div>
+				<div class="block teal"></div><div class="block teal"></div><div class="block teal"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-two">
+				<div class="block coral wide"></div><div class="block peach tall"></div>
+				<div class="block teal"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-three">
+				<div class="block peach full"></div><div class="block teal"></div><div class="block coral wide"></div><div class="block teal full"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-four">
+				<div class="block peach middle-wide"></div><div class="block coral middle-wide"></div>
+				<div class="block teal"></div><div class="block mint middle-wide"></div>
+				<div class="block peach wide"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-five">
+				<div class="block teal"></div><div class="block coral"></div><div class="block mint"></div><div class="block coral"></div><div class="block mint"></div><div class="block peach"></div>
+				<div class="block peach"></div><div class="block teal"></div><div class="block coral"></div><div class="block mint"></div><div class="block teal"></div><div class="block coral"></div>
+				<div class="block teal"></div><div class="block coral"></div><div class="block mint"></div><div class="block peach"></div><div class="block teal"></div><div class="block mint"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-six">
+				<div class="block coral wide"></div><div class="block teal"></div><div class="block peach"></div>
+				<div class="block peach"></div><div class="block teal"></div><div class="block teal"></div><div class="block coral"></div>
+				<div class="block peach large"></div><div class="block mint"></div><div class="block coral"></div>
+				<div class="block mint"></div><div class="block teal"></div>
+				<div class="block mint wide"></div><div class="block peach"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-seven">
+				<div class="block peach top-wide"></div><div class="block mint top-wide"></div><div class="block coral large"></div><div class="block mint top-wide"></div><div class="block peach"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-eight">
+				<div class="block coral"></div><div class="block peach"></div><div class="block mint"></div><div class="block teal"></div><div class="block teal"></div>
+				<div class="block peach"></div><div class="block coral"></div><div class="block coral wide"></div>
+				<div class="block teal full"></div>
+			</div>
+		</article>
+
+		<article class="browser">
+			<div class="browser-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="address-bar"></span></div>
+			<div class="mockup layout-nine">
+				<div class="block peach full"></div><div class="block teal tall"></div><div class="block mint wide"></div>
+				<div class="block coral"></div><div class="block peach"></div>
+			</div>
+		</article>
+	</main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abhay Pratap Singh">
+    <title>Q10 - Mini UI Layout</title>
+    <link rel="stylesheet" href="style10.css">
+</head>
+<body>
+    <main>
+        <article class="app-card">
+            <header class="app-header">
+                <h1>Profile Hub</h1>
+                <span class="status-badge">Online</span>
+            </header>
+
+            <section class="app-body">
+                <figure class="profile">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80" alt="User profile photo">
+                    <figcaption>Abhay Pratap Singh</figcaption>
+                </figure>
+
+                <form class="profile-form">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" value="Abhay Pratap Singh">
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" value="abhay@example.com">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-primary" type="submit">Save Profile</button>
+                        <button class="btn btn-secondary" type="reset">Cancel</button>
+                    </div>
+                </form>
+            </section>
+
+            <footer class="app-footer">
+                <p>Last updated · Sep 13, 2026 · 5:00 PM</p>
+            </footer>
+        </article>
+    </main>
+</body>
+</html>

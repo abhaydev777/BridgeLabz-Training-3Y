@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abhay Pratap Singh">
+    <title>Q4 - CSS Selectors Practice</title>
+    <link rel="stylesheet" href="style04.css">
+</head>
+<body>
+    <header id="main-header">
+        <h1>CSS Selectors Practice</h1>
+        <p>Examples of element, class, ID, attribute, and combinator selectors.</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Element Selectors</h2>
+            <p>This paragraph is styled with an element selector (<code>p</code>).</p>
+            <p>Headings like the one above use the <code>h2</code> element selector.</p>
+        </section>
+
+        <section class="card">
+            <h2>Class &amp; ID Selectors</h2>
+            <p class="highlight">This line uses the .highlight class for emphasis.</p>
+            <p>The page header above is targeted by the #main-header ID.</p>
+        </section>
+
+        <section class="card">
+            <h2>Attribute Selectors</h2>
+            <form>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your name">
+            </form>
+            <p>
+                Visit
+                <a href="https://developer.mozilla.org" target="_blank">MDN Docs</a>
+                (opens in a new tab).
+            </p>
+        </section>
+
+        <section class="card combinators">
+            <h2>Combinators</h2>
+            <div class="parent">
+                <p>Direct child paragraph (div &gt; p).</p>
+                <ul>
+                    <li>List item one</li>
+                    <li>List item two</li>
+                </ul>
+                <p>Another paragraph after the list (ul + p targets the next sibling).</p>
+                <p>This paragraph is a subsequent sibling of the list (ul ~ p).</p>
+            </div>
+            <div class="nested">
+                <article>
+                    <p>Descendant paragraph inside div article (div p).</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Abhay Pratap Singh — Assignment 8, Question 4</p>
+    </footer>
+</body>
+</html>

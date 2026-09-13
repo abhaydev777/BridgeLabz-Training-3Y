@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abhay Pratap Singh">
+    <title>Q1 - Pseudo-Classes Demo</title>
+    <link rel="stylesheet" href="style01.css">
+</head>
+<body>
+    <header>
+        <h1>Pseudo-Classes Demo</h1>
+        <p>Hover, focus, click, and watch list items change with :nth-child.</p>
+    </header>
+
+    <main class="demo-row">
+        <section class="demo-card">
+            <h2>:hover</h2>
+            <p class="desc">Applied when the mouse pointer is over an element.</p>
+            <a class="demo-link" href="#">Hover over this link</a>
+            <button class="demo-btn" type="button">Hover button</button>
+        </section>
+
+        <section class="demo-card">
+            <h2>:focus</h2>
+            <p class="desc">Applied when an element receives keyboard or click focus.</p>
+            <a class="demo-link" href="#">Tab to focus this link</a>
+            <button class="demo-btn" type="button">Focus button</button>
+        </section>
+
+        <section class="demo-card">
+            <h2>:active</h2>
+            <p class="desc">Applied while the element is being pressed or clicked.</p>
+            <a class="demo-link" href="#">Click and hold this link</a>
+            <button class="demo-btn" type="button">Press button</button>
+        </section>
+
+        <section class="demo-card">
+            <h2>:nth-child()</h2>
+            <p class="desc">Selects list items by position — even rows are highlighted.</p>
+            <ul class="demo-list">
+                <li>Item 1 (odd)</li>
+                <li>Item 2 (even)</li>
+                <li>Item 3 (odd)</li>
+                <li>Item 4 (even)</li>
+                <li>Item 5 (odd)</li>
+            </ul>
+            <ol class="demo-list">
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+                <li>Fourth</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Abhay Pratap Singh</p>
+    </footer>
+</body>
+</html>

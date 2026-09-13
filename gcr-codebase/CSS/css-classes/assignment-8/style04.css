@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #edf2f7;
+    color: #2d3748;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ID selector — styles the main page header */
+#main-header {
+    background: #2b6cb0;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+#main-header h1 {
+    margin-bottom: 0.4rem;
+}
+
+main {
+    flex: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Class selector — card container */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.4rem;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Element selector — section headings */
+h2 {
+    color: #2c5282;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Element selector — default paragraph look */
+p {
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+}
+
+/* Class selector — highlighted text */
+.highlight {
+    background: #fefcbf;
+    padding: 0.4rem 0.6rem;
+    border-left: 4px solid #d69e2e;
+    border-radius: 4px;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+/* Attribute selector — text inputs only */
+input[type="text"] {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.55rem 0.75rem;
+    border: 2px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    margin-bottom: 0.85rem;
+}
+
+input[type="text"]:focus {
+    border-color: #2b6cb0;
+    outline: none;
+}
+
+/* Attribute selector — links that open in a new tab */
+a[target="_blank"] {
+    color: #c05621;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+a[target="_blank"]:hover {
+    color: #9c4221;
+}
+
+/* Child combinator — only direct child paragraphs of .parent */
+.combinators .parent > p {
+    color: #276749;
+    font-weight: 500;
+}
+
+/* Next sibling combinator — paragraph immediately after ul */
+.combinators ul + p {
+    color: #6b46c1;
+    font-style: italic;
+}
+
+/* Subsequent sibling combinator — all p siblings after ul */
+.combinators ul ~ p {
+    border-bottom: 1px dotted #a0aec0;
+    padding-bottom: 0.3rem;
+}
+
+ul {
+    margin: 0.5rem 0 0.5rem 1.25rem;
+}
+
+/* Descendant combinator — any p nested inside .nested */
+.nested p {
+    background: #ebf8ff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    color: #2b6cb0;
+}
+
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    background: #2d3748;
+    color: #e2e8f0;
+    font-size: 0.85rem;
+}
+
+footer p {
+    margin: 0;
+    color: inherit;
+}
