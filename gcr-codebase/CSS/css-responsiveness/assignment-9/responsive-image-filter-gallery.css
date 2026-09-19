@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(160deg, #e8f0fe 0%, #f5f7fa 50%, #eef2f7 100%);
+  color: #1a1a2e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #16213e;
+}
+
+header p {
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+main {
+  flex: 1;
+  padding: 1rem 1.5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Auto-fit grid: wraps columns based on available space */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+figure {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: filter 0.4s ease;
+}
+
+.filter-blur {
+  filter: blur(3px);
+}
+
+.filter-grayscale {
+  filter: grayscale(100%);
+}
+
+.filter-sepia {
+  filter: sepia(100%);
+}
+
+.filter-brightness {
+  filter: brightness(1.4);
+}
+
+.filter-contrast {
+  filter: contrast(1.6);
+}
+
+.filter-hue {
+  filter: hue-rotate(90deg);
+}
+
+/* Hover removes the filter smoothly */
+figure img:hover {
+  filter: none;
+}
+
+figcaption {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d3748;
+  background: #f7fafc;
+}
+
+footer {
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+  color: #718096;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Stack into a single column on small screens */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+}

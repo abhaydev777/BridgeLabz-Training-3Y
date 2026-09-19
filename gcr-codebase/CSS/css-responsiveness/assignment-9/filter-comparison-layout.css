@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(160deg, #fffaf0 0%, #f7fafc 55%, #edf2f7 100%);
+  color: #1a202c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1.5rem 1rem;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  margin-bottom: 0.45rem;
+}
+
+header p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+main {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Side-by-side comparison on desktop */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+figure {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.filtered-image {
+  filter: contrast(1.5) brightness(1.15);
+  transition: filter 0.4s ease;
+}
+
+.filtered-image:hover {
+  filter: none;
+}
+
+figcaption {
+  padding: 0.85rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2d3748;
+  background: #f7fafc;
+}
+
+.before figcaption {
+  border-top: 3px solid #68d391;
+}
+
+.after figcaption {
+  border-top: 3px solid #ed8936;
+}
+
+footer {
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+/* Stack vertically below 700px */
+@media (max-width: 700px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  figure img {
+    height: 220px;
+  }
+
+  header h1 {
+    font-size: 1.35rem;
+  }
+}

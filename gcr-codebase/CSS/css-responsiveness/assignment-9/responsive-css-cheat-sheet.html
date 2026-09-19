@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Responsive CSS Cheat Sheet</title>
+  <link rel="stylesheet" href="responsive-css-cheat-sheet.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Responsiveness Cheat Sheet</h1>
+    <p>Quick reference for filters, media queries, layout, and typography.</p>
+  </header>
+
+  <main>
+    <section class="cheat-grid" aria-label="Cheat sheet topics">
+      <article class="topic-card">
+        <h2>Filters</h2>
+        <dl>
+          <dt>blur()</dt>
+          <dd>Softens the image. Example: <code>filter: blur(4px);</code></dd>
+          <dt>grayscale()</dt>
+          <dd>Removes color. Example: <code>filter: grayscale(100%);</code></dd>
+          <dt>sepia()</dt>
+          <dd>Warm vintage tone. Example: <code>filter: sepia(80%);</code></dd>
+          <dt>brightness() / contrast()</dt>
+          <dd>Adjust light and detail. Example: <code>filter: brightness(1.2) contrast(1.3);</code></dd>
+        </dl>
+      </article>
+
+      <article class="topic-card">
+        <h2>Media Queries</h2>
+        <dl>
+          <dt>Basic syntax</dt>
+          <dd><code>@media (max-width: 600px) { ... }</code></dd>
+          <dt>min-width</dt>
+          <dd>Styles apply from that width upward (mobile-first).</dd>
+          <dt>max-width</dt>
+          <dd>Styles apply from that width downward (desktop-first).</dd>
+          <dt>Common breakpoints</dt>
+          <dd>600px (mobile), 750–900px (tablet), 1100px+ (desktop).</dd>
+        </dl>
+      </article>
+
+      <article class="topic-card">
+        <h2>Responsive Design</h2>
+        <dl>
+          <dt>Fluid layouts</dt>
+          <dd>Use <code>%</code>, <code>fr</code>, <code>auto-fit</code>, and flex/grid instead of fixed px widths.</dd>
+          <dt>Flexible media</dt>
+          <dd><code>img { max-width: 100%; height: auto; }</code></dd>
+          <dt>Viewport meta</dt>
+          <dd><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></dd>
+          <dt>Relative units</dt>
+          <dd>Prefer <code>rem</code>, <code>em</code>, <code>vw</code>, and <code>%</code> for scalable spacing.</dd>
+        </dl>
+      </article>
+
+      <article class="topic-card">
+        <h2>Typography</h2>
+        <dl>
+          <dt>clamp()</dt>
+          <dd><code>font-size: clamp(1rem, 2vw, 1.5rem);</code></dd>
+          <dt>Line height</dt>
+          <dd>Body text often works well around <code>1.5</code> to <code>1.7</code>.</dd>
+          <dt>Readable measure</dt>
+          <dd>Limit paragraph width (~45–75 characters) with <code>max-width</code>.</dd>
+          <dt>Contrast</dt>
+          <dd>Keep text dark enough on light backgrounds for accessibility.</dd>
+        </dl>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Abhay Pratap Singh — Assignment 9</p>
+  </footer>
+</body>
+</html>

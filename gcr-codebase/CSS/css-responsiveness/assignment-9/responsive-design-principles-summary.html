@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Responsive Design Principles Summary</title>
+  <link rel="stylesheet" href="responsive-design-principles-summary.css">
+</head>
+<body>
+  <header>
+    <h1>Responsive Design Principles</h1>
+    <p>Three building blocks every responsive page needs.</p>
+  </header>
+
+  <main>
+    <section class="principles" aria-label="Core responsive design principles">
+      <article class="principle-box">
+        <h2>Fluid Layouts</h2>
+        <p>Layouts that use relative units and flexible tracks so columns resize with the viewport instead of staying locked to fixed pixel widths.</p>
+        <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}</code></pre>
+      </article>
+
+      <article class="principle-box">
+        <h2>Flexible Media</h2>
+        <p>Images and video should shrink to fit their parent. Avoid overflow by capping width and letting height scale automatically.</p>
+        <pre><code>img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}</code></pre>
+      </article>
+
+      <article class="principle-box">
+        <h2>Breakpoints</h2>
+        <p>Media queries redefine layout and spacing at key widths so navigation, grids, and typography stay usable on each device class.</p>
+        <pre><code>@media (max-width: 600px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Abhay Pratap Singh — Assignment 9</p>
+  </footer>
+</body>
+</html>

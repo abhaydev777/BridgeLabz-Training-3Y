@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Combined Responsive Web Demo</title>
+  <link rel="stylesheet" href="combined-responsive-web-demo.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">RWD Demo</div>
+    <nav>
+      <ul>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#explain">Learn</a></li>
+        <li><a href="#cheatsheet">Cheat Sheet</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-grid">
+    <section id="gallery" class="panel gallery-panel" aria-label="Image gallery">
+      <h2>Image Gallery</h2>
+      <div class="mini-gallery">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop" alt="Mountains with grayscale filter" class="filtered">
+          <figcaption>Grayscale</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=200&fit=crop" alt="Forest with sepia filter" class="filtered-sepia">
+          <figcaption>Sepia</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=300&h=200&fit=crop" alt="Lake with contrast filter" class="filtered-contrast">
+          <figcaption>Contrast</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="explain" class="panel text-panel">
+      <h2>What is Responsive Design?</h2>
+      <p>
+        Responsive web design makes one layout work across phones, tablets, and desktops.
+        It relies on fluid grids, flexible images, and media queries so content reflows
+        instead of forcing horizontal scroll or tiny text.
+      </p>
+      <p>
+        Techniques like Flexbox, CSS Grid, <code>clamp()</code>, and CSS filters help pages
+        stay readable and visually polished at every width.
+      </p>
+    </section>
+
+    <aside id="cheatsheet" class="panel cheat-panel">
+      <h2>Cheat Sheet Preview</h2>
+      <ul>
+        <li><strong>Grid:</strong> <code>repeat(auto-fit, minmax(200px, 1fr))</code></li>
+        <li><strong>Flex:</strong> <code>display: flex; gap: 1rem;</code></li>
+        <li><strong>Query:</strong> <code>@media (max-width: 700px)</code></li>
+        <li><strong>Filter:</strong> <code>filter: grayscale(100%);</code></li>
+        <li><strong>Type:</strong> <code>font-size: clamp(1rem, 2vw, 1.5rem);</code></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer id="contact">
+    <p><strong>Contact:</strong> abhay@example.edu · BridgeLabz Training</p>
+    <p>&copy; 2026 Abhay Pratap Singh — Assignment 9</p>
+  </footer>
+</body>
+</html>

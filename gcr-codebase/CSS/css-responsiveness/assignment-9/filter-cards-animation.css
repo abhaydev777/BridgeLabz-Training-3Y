@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(160deg, #e6fffa 0%, #f0fff4 40%, #edf2f7 100%);
+  color: #1a202c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Simple fade-in on page load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1.5rem 1rem;
+  animation: fadeIn 0.7s ease forwards;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  margin-bottom: 0.4rem;
+}
+
+header p {
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+main {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.profiles {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  animation: fadeIn 0.9s ease 0.15s both;
+}
+
+.profile-card {
+  flex: 1;
+  max-width: 280px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding-bottom: 1.25rem;
+  transition: 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.profile-card figure {
+  margin: 0;
+}
+
+.profile-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.img-grayscale {
+  filter: grayscale(100%);
+}
+
+.img-sepia {
+  filter: sepia(80%);
+}
+
+.profile-card:hover img {
+  filter: none;
+}
+
+.profile-card h2 {
+  font-size: 1.15rem;
+  margin: 1rem 1rem 0.4rem;
+  color: #2d3748;
+}
+
+.profile-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4a5568;
+  padding: 0 1.1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+/* Stack cards vertically below 800px */
+@media (max-width: 800px) {
+  .profiles {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-card {
+    max-width: 320px;
+    width: 100%;
+  }
+}
