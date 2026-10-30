@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 9 - Shopping Cart Total & Coupons</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      max-width: 680px;
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .header {
+      margin-bottom: 24px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+
+    p.subtitle {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Cart Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th {
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      padding: 10px 12px;
+      border-bottom: 2px solid #e2e8f0;
+      background: #f8fafc;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.9rem;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    /* Coupon Input Row */
+    .coupon-section {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+
+    .coupon-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .coupon-input-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .coupon-input-group input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      outline: none;
+    }
+
+    .coupon-input-group input:focus {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .coupon-input-group button {
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .coupon-input-group button:hover {
+      background: #0369a1;
+    }
+
+    .coupon-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .coupon-feedback.success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .coupon-feedback.error {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    /* Summary Calculation Block */
+    .summary-table {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .summary-table td {
+      padding: 8px 12px;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .summary-table .label {
+      color: #64748b;
+    }
+
+    .discount-val {
+      color: #10b981;
+      font-weight: 600;
+    }
+
+    .total-row td {
+      border-top: 2px solid #e2e8f0;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #0f172a;
+      padding-top: 12px;
+    }
+
+    /* Add Item Form */
+    .add-item-box {
+      margin-top: 28px;
+      border-top: 2px dashed #e2e8f0;
+      padding-top: 20px;
+    }
+
+    .add-item-box h3 {
+      font-size: 0.95rem;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+
+    .add-item-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .add-item-grid input {
+      padding: 9px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .add-btn {
+      background: #334155;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .add-btn:hover {
+      background: #1e293b;
+    }
+
+    .info-footer {
+      margin-top: 20px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    .info-footer code {
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #0369a1;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <span class="badge">Question 9</span>
+      <h1>Shopping Cart Total & Coupons</h1>
+      <p class="subtitle">ES6 Cart Class with dynamic RegExp promo code validator</p>
+    </div>
+
+    <!-- Cart Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th class="text-right">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="cartItemList">
+        <!-- Rendered dynamically -->
+      </tbody>
+    </table>
+
+    <!-- Coupon Box -->
+    <div class="coupon-section">
+      <div class="coupon-title">Have a Promotional Coupon?</div>
+      <div class="coupon-input-group">
+        <input type="text" id="couponInput" placeholder="Try SAVE20 or DISC10" autocomplete="off">
+        <button type="button" id="applyCouponBtn">Apply Code</button>
+      </div>
+      <div id="couponFeedback" class="coupon-feedback"></div>
+    </div>
+
+    <!-- Total Calculations -->
+    <table class="summary-table">
+      <tr>
+        <td class="label">Subtotal:</td>
+        <td class="text-right" id="cartSubtotal">$0.00</td>
+      </tr>
+      <tr id="discountRow" style="display: none;">
+        <td class="label">Discount Applied:</td>
+        <td class="text-right discount-val" id="discountAmount">-$0.00</td>
+      </tr>
+      <tr class="total-row">
+        <td>Total Payout:</td>
+        <td class="text-right" id="cartFinalTotal">$0.00</td>
+      </tr>
+    </table>
+
+    <!-- Add Item Section -->
+    <div class="add-item-box">
+      <h3>Add New Item to Cart:</h3>
+      <form id="addItemForm" class="add-item-grid">
+        <input type="text" id="newItemName" placeholder="Item name" required>
+        <input type="number" id="newItemPrice" placeholder="Price ($)" min="1" step="0.01" required>
+        <input type="number" id="newItemQty" placeholder="Qty" min="1" value="1" required>
+        <button type="submit" class="add-btn">+ Add Item</button>
+      </form>
+    </div>
+
+    <div class="info-footer">
+      <strong>Coupon Pattern:</strong> <code>/^(SAVE|DISC)(\d{1,2})$/</code> (e.g., <code>SAVE20</code> = 20% off, <code>DISC10</code> = 10% off, <code>SAVE50</code> = 50% off).
+    </div>
+  </div>
+
+  <footer>
+    Assignment 4 | Student: Abhay Pratap Singh
+  </footer>
+
+  <script src="q9.js"></script>
+</body>
+</html>
+

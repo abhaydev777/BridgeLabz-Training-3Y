@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 4 - Custom Form Builder</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .header {
+      margin-bottom: 24px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fdf2f8;
+      color: #be185d;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+
+    p.subtitle {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Styles for the dynamically rendered form */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .req {
+      color: #ef4444;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #fafafa;
+    }
+
+    .form-input:focus {
+      background: #ffffff;
+      border-color: #be185d;
+      box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.15);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: #be185d;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: #9d174d;
+    }
+
+    /* Output Card */
+    .result-card {
+      display: none;
+      margin-top: 24px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .result-card h3 {
+      font-size: 0.9rem;
+      color: #38bdf8;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      color: #a7f3d0;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .info-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <span class="badge">Question 4</span>
+      <h1>Custom Form Builder</h1>
+      <p class="subtitle">Dynamically rendered form schema built via ES6 Class</p>
+    </div>
+
+    <!-- The FormBuilder renders into this target container -->
+    <div id="formContainer"></div>
+
+    <!-- Output preview of extracted form data -->
+    <div id="submissionResult" class="result-card">
+      <h3>Extracted Key-Value Object:</h3>
+      <pre id="jsonOutput"></pre>
+    </div>
+
+    <div class="info-box">
+      <strong>OOP Pattern:</strong> The form above is dynamically constructed via <code>new FormBuilder(container, fields, callback).render()</code> and data is extracted upon submission with <code>getFormData()</code>.
+    </div>
+  </div>
+
+  <footer>
+    Assignment 4 | Student: Abhay Pratap Singh
+  </footer>
+
+  <script src="q4.js"></script>
+</body>
+</html>
+

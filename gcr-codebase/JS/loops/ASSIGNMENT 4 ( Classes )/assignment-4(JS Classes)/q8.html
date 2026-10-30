@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 8 - Dynamic Object Updater</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .header {
+      margin-bottom: 24px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+
+    p.subtitle {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #fafafa;
+    }
+
+    input:focus {
+      background: #ffffff;
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+    }
+
+    .btn {
+      width: 100%;
+      background: #7c3aed;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .btn:hover {
+      background: #6d28d9;
+    }
+
+    .alert {
+      display: none;
+      background: #ecfdf5;
+      color: #065f46;
+      border-left: 4px solid #10b981;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+    }
+
+    /* Output Section */
+    .output-section {
+      margin-top: 28px;
+      border-top: 2px dashed #e2e8f0;
+      padding-top: 20px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .timestamp {
+      font-size: 0.75rem;
+      font-weight: normal;
+      color: #94a3b8;
+    }
+
+    /* Visual profile card */
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .user-avatar {
+      width: 48px;
+      height: 48px;
+      background: #7c3aed;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .user-meta h4 {
+      font-size: 1rem;
+      color: #0f172a;
+    }
+
+    .user-meta p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .age-badge {
+      display: inline-block;
+      margin-top: 6px;
+      background: #e2e8f0;
+      color: #334155;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    /* Code block for JSON display */
+    .json-box {
+      background: #0f172a;
+      color: #38bdf8;
+      border-radius: 8px;
+      padding: 14px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <span class="badge">Question 8</span>
+      <h1>Dynamic Object Updater</h1>
+      <p class="subtitle">Real-time object mutation and live DOM synchronization</p>
+    </div>
+
+    <!-- Form pre-populated with initial user values -->
+    <form id="userUpdateForm">
+      <div class="form-group">
+        <label for="userName">Name</label>
+        <input type="text" id="userName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="userEmail">Email</label>
+        <input type="email" id="userEmail" required>
+      </div>
+
+      <div class="form-group">
+        <label for="userAge">Age</label>
+        <input type="number" id="userAge" min="1" max="120" required>
+      </div>
+
+      <button type="submit" class="btn">Update User Object</button>
+    </form>
+
+    <div id="updateNotification" class="alert">
+      Object updated in memory & DOM synchronized successfully!
+    </div>
+
+    <!-- Output display area -->
+    <div class="output-section">
+      <div class="section-title">
+        <span>Current User Object State</span>
+        <span class="timestamp" id="updateTimestamp"></span>
+      </div>
+
+      <!-- Formatted Card View -->
+      <div id="profileCard" class="profile-card"></div>
+
+      <!-- Raw JSON <pre> display -->
+      <pre id="objectDisplay" class="json-box"></pre>
+    </div>
+  </div>
+
+  <footer>
+    Assignment 4 | Student: Abhay Pratap Singh
+  </footer>
+
+  <script src="q8.js"></script>
+</body>
+</html>
+

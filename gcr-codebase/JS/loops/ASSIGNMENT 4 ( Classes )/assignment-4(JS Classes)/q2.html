@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 2 - Student Form Validator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .header {
+      margin-bottom: 24px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #4338ca;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+
+    p.subtitle {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+      background: #fafafa;
+    }
+
+    input:focus {
+      background: #ffffff;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    /* Requirement: Red border if invalid, Green border if valid */
+    input.invalid {
+      border: 2px solid #ef4444 !important;
+      background-color: #fef2f2;
+    }
+
+    input.valid {
+      border: 2px solid #10b981 !important;
+      background-color: #f0fdf4;
+    }
+
+    .error-msg {
+      color: #ef4444;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+      font-weight: 500;
+    }
+
+    .btn {
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
+    .success-alert {
+      display: none;
+      background-color: #ecfdf5;
+      border-left: 4px solid #10b981;
+      color: #065f46;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .regex-guide {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+
+    .regex-guide h3 {
+      font-size: 0.85rem;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .regex-guide code {
+      background: #e2e8f0;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <span class="badge">Question 2</span>
+      <h1>Student Form Validator</h1>
+      <p class="subtitle">Validating input fields in real time with Regular Expressions</p>
+    </div>
+
+    <form id="studentForm" novalidate>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="e.g. Abhay Pratap Singh" autocomplete="off">
+        <span class="hint">Letters and spaces only (/^[A-Za-z\s]+$/)</span>
+        <div class="error-msg" id="nameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="e.g. abhay.singh@college.edu" autocomplete="off">
+        <span class="hint">Standard email format (/^[^\s@]+@[^\s@]+\.[^\s@]+$/)</span>
+        <div class="error-msg" id="emailError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="e.g. 9876543210" maxlength="10" autocomplete="off">
+        <span class="hint">Strictly 10 digits (/^\d{10}$/)</span>
+        <div class="error-msg" id="phoneError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="e.g. Secret@123" autocomplete="off">
+        <span class="hint">Min 1 uppercase, 1 digit, 1 special symbol (!@#$%^&*)</span>
+        <div class="error-msg" id="passwordError"></div>
+      </div>
+
+      <button type="submit" class="btn">Register Student</button>
+    </form>
+
+    <div id="successBanner" class="success-alert"></div>
+
+    <div class="regex-guide">
+      <h3>Active RegExp Rules:</h3>
+      <div>• <strong>Name:</strong> <code>/^[A-Za-z\s]+$/</code></div>
+      <div>• <strong>Email:</strong> <code>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</code></div>
+      <div>• <strong>Phone:</strong> <code>/^\d{10}$/</code></div>
+      <div>• <strong>Password:</strong> <code>/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])/</code></div>
+    </div>
+  </div>
+
+  <footer>
+    Assignment 4 | Student: Abhay Pratap Singh
+  </footer>
+
+  <script src="q2.js"></script>
+</body>
+</html>
+

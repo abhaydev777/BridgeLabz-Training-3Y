@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 5 - Movie Ticket Booking</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: #1e293b;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+      padding: 32px;
+      margin-bottom: 24px;
+      border: 1px solid #334155;
+    }
+
+    .header {
+      margin-bottom: 24px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f59e0b;
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #f8fafc;
+    }
+
+    p.subtitle {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    input {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      border: 1.5px solid #475569;
+      border-radius: 8px;
+      outline: none;
+      background: #0f172a;
+      color: #f8fafc;
+      transition: all 0.2s ease;
+    }
+
+    input:focus {
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    }
+
+    input.invalid {
+      border-color: #ef4444 !important;
+      background: #1e1518;
+    }
+
+    input.valid {
+      border-color: #10b981 !important;
+      background: #11221a;
+    }
+
+    .error-msg {
+      color: #f87171;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+      font-weight: 500;
+    }
+
+    .btn {
+      width: 100%;
+      background: #f59e0b;
+      color: #0f172a;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #d97706;
+    }
+
+    /* Ticket Card Component */
+    .ticket-card {
+      display: none;
+      margin-top: 28px;
+      background: #f8fafc;
+      color: #0f172a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border-left: 6px solid #f59e0b;
+      position: relative;
+    }
+
+    .ticket-header {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cinema-name {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      color: #f59e0b;
+    }
+
+    .booking-tag {
+      background: #10b981;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .ticket-body {
+      padding: 20px;
+    }
+
+    .movie-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 16px;
+      border-bottom: 1px dashed #cbd5e1;
+      padding-bottom: 12px;
+    }
+
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .ticket-grid .label {
+      display: block;
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .ticket-grid .value {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 2px;
+    }
+
+    .ticket-grid .total-price {
+      color: #059669;
+      font-weight: 700;
+    }
+
+    .ticket-footer {
+      background: #f1f5f9;
+      padding: 12px 20px;
+      border-top: 1px dashed #cbd5e1;
+      text-align: center;
+    }
+
+    .barcode {
+      font-family: monospace;
+      letter-spacing: 3px;
+      font-weight: bold;
+      color: #334155;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .ticket-footer p {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: #64748b;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <span class="badge">Question 5</span>
+      <h1>Movie Ticket Booking</h1>
+      <p class="subtitle">Enter customer details and book 1 to 10 cinema seats</p>
+    </div>
+
+    <form id="movieBookingForm" novalidate>
+      <div class="form-group">
+        <label for="userName">Customer Name</label>
+        <input type="text" id="userName" placeholder="e.g. Abhay Pratap Singh" autocomplete="off">
+        <span class="hint">Alphabets and spaces only (/^[A-Za-z\s]+$/)</span>
+        <div class="error-msg" id="nameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="userEmail">Email Address</label>
+        <input type="email" id="userEmail" placeholder="e.g. abhay.singh@cinema.com" autocomplete="off">
+        <span class="hint">Standard email pattern (/^[^\s@]+@[^\s@]+\.[^\s@]+$/)</span>
+        <div class="error-msg" id="emailError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="seatCount">Number of Seats (1 - 10)</label>
+        <input type="number" id="seatCount" placeholder="e.g. 4" min="1" max="10" autocomplete="off">
+        <span class="hint">Allowed: 1 to 10 seats (/^([1-9]|10)$/)</span>
+        <div class="error-msg" id="seatsError"></div>
+      </div>
+
+      <button type="submit" class="btn">Confirm & Book Tickets</button>
+    </form>
+
+    <!-- Formatted ticket summary card on DOM -->
+    <div id="ticketSummaryCard" class="ticket-card"></div>
+  </div>
+
+  <footer>
+    Assignment 4 | Student: Abhay Pratap Singh
+  </footer>
+
+  <script src="q5.js"></script>
+</body>
+</html>
+
