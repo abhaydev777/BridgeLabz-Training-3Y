@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 9 - Form Submit Blocker & Live Validation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 0.4rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    input.input-error {
+      border-color: #ef4444;
+      background-color: #fef2f2;
+    }
+
+    input.input-error:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+    }
+
+    .error-msg {
+      color: #dc2626;
+      font-size: 0.82rem;
+      margin-top: 0.35rem;
+      min-height: 1.2rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      background-color: #3b82f6;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit:hover {
+      background-color: #2563eb;
+    }
+
+    /* Success banner */
+    .success-banner {
+      display: none;
+      padding: 1rem;
+      background-color: #dcfce7;
+      border: 1px solid #86efac;
+      color: #15803d;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 1.25rem;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Form Submission &amp; Live Validation</h1>
+      <p>Assignment 7: Question 9 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <form id="registrationForm" novalidate>
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Name <span style="color:#ef4444;">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" autocomplete="name">
+        <div class="error-msg" id="nameError"></div>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email <span style="color:#ef4444;">*</span></label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="email">
+        <div class="error-msg" id="emailError"></div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password (Min. 6 chars) <span style="color:#ef4444;">*</span></label>
+        <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password">
+        <div class="error-msg" id="passwordError"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-submit" id="submitBtn">Submit Registration</button>
+    </form>
+
+    <!-- Success Message Banner -->
+    <div class="success-banner" id="successBanner">
+      Form Submitted Successfully
+    </div>
+  </main>
+
+  <script src="q9.js" defer></script>
+</body>
+</html>
+

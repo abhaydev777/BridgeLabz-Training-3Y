@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 1 - Dynamic Product List Manager</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .input-section {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-section input {
+      flex: 1;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-section input:focus {
+      border-color: #3b82f6;
+    }
+
+    .btn {
+      padding: 0.65rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-add {
+      background-color: #3b82f6;
+      color: #ffffff;
+    }
+
+    .btn-add:hover {
+      background-color: #2563eb;
+    }
+
+    .product-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .product-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .product-item:hover {
+      background-color: #f1f5f9;
+    }
+
+    .product-name {
+      flex: 1;
+      font-size: 0.95rem;
+      color: #334155;
+      word-break: break-word;
+      padding-right: 0.75rem;
+    }
+
+    .edit-input {
+      flex: 1;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.95rem;
+      border: 1.5px solid #3b82f6;
+      border-radius: 4px;
+      margin-right: 0.75rem;
+      outline: none;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .btn-edit {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .btn-edit:hover {
+      background-color: #bae6fd;
+    }
+
+    .btn-delete {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .btn-delete:hover {
+      background-color: #fecaca;
+    }
+
+    .empty-message {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      padding: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Product List Manager</h1>
+      <p>Assignment 7: Question 1 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <div class="input-section">
+      <input type="text" id="productInput" placeholder="Enter product name..." autocomplete="off">
+      <button id="addBtn" class="btn btn-add">Add Product</button>
+    </div>
+
+    <ul id="productList" class="product-list">
+      <!-- Dynamic list items will be injected here -->
+      <li class="empty-message" id="emptyNotice">No products added yet.</li>
+    </ul>
+  </main>
+
+  <script src="q1.js" defer></script>
+</body>
+</html>
+

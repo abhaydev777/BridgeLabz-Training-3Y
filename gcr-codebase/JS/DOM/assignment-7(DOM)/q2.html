@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 2 - Live Character Counter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .field-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 0.5rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 140px;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      line-height: 1.5;
+    }
+
+    textarea:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .counter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .counter {
+      font-weight: 600;
+      transition: color 0.25s ease;
+    }
+
+    /* Counter state colors */
+    .counter.normal {
+      color: #475569;
+    }
+
+    .counter.warning {
+      color: #d97706; /* Amber / Yellow warning */
+    }
+
+    .counter.danger {
+      color: #dc2626; /* Red limit reached */
+    }
+
+    .btn {
+      padding: 0.55rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-reset {
+      background-color: #e2e8f0;
+      color: #334155;
+    }
+
+    .btn-reset:hover {
+      background-color: #cbd5e1;
+    }
+
+    .hint-text {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      background: #f8fafc;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      border-left: 3px solid #3b82f6;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Live Character Counter</h1>
+      <p>Assignment 7: Question 2 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <div class="field-group">
+      <label for="messageInput">Your Message (Max 100 Characters):</label>
+      <textarea id="messageInput" placeholder="Start typing your thoughts here..."></textarea>
+      
+      <div class="counter-bar">
+        <span id="counterDisplay" class="counter normal">Characters remaining: 100</span>
+        <button id="resetBtn" class="btn btn-reset" type="button">Reset</button>
+      </div>
+    </div>
+
+    <div class="hint-text">
+      Counter turns yellow at &le; 20 characters, red at 0, and blocks further typing while allowing Backspace/Delete.
+    </div>
+  </main>
+
+  <script src="q2.js" defer></script>
+</body>
+</html>
+

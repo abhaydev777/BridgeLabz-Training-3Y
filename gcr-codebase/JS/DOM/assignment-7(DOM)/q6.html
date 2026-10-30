@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 6 - Real-Time Table Filter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .search-bar {
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-bar input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    thead {
+      background-color: #f8fafc;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    th {
+      padding: 0.85rem 1rem;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #f1f5f9;
+      transition: background-color 0.15s ease;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:hover:not(.no-results-row) {
+      background-color: #f8fafc;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      color: #334155;
+    }
+
+    .cgpa-badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .no-results-row td {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    .filter-count {
+      margin-top: 0.8rem;
+      font-size: 0.82rem;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Student Directory Filter</h1>
+      <p>Assignment 7: Question 6 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search students by name, branch, or CGPA..." autocomplete="off">
+    </div>
+
+    <div class="table-responsive">
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>CGPA</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr>
+            <td>Aarav Sharma</td>
+            <td>Computer Science</td>
+            <td><span class="cgpa-badge">9.2</span></td>
+          </tr>
+          <tr>
+            <td>Diya Patel</td>
+            <td>Information Technology</td>
+            <td><span class="cgpa-badge">8.7</span></td>
+          </tr>
+          <tr>
+            <td>Rohan Verma</td>
+            <td>Mechanical Engineering</td>
+            <td><span class="cgpa-badge">7.9</span></td>
+          </tr>
+          <tr>
+            <td>Ananya Iyer</td>
+            <td>Electrical Engineering</td>
+            <td><span class="cgpa-badge">9.5</span></td>
+          </tr>
+          <tr>
+            <td>Kabir Mehta</td>
+            <td>Computer Science</td>
+            <td><span class="cgpa-badge">8.4</span></td>
+          </tr>
+          <tr>
+            <td>Sneha Roy</td>
+            <td>Civil Engineering</td>
+            <td><span class="cgpa-badge">8.1</span></td>
+          </tr>
+          <tr>
+            <td>Vikram Singh</td>
+            <td>Electronics &amp; Comm.</td>
+            <td><span class="cgpa-badge">8.9</span></td>
+          </tr>
+          <tr id="noResultsRow" class="no-results-row" style="display: none;">
+            <td colspan="3">No students found matching your search.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="filter-count">
+      <span id="matchInfo">Showing 7 of 7 students</span>
+    </div>
+  </main>
+
+  <script src="q6.js" defer></script>
+</body>
+</html>
+

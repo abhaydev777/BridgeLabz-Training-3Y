@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 3 - Multi-Step Form Wizard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* Progress bar / step indicator */
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .step-indicator::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: #e2e8f0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .step-circle {
+      position: relative;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 3px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #64748b;
+      transition: all 0.3s;
+    }
+
+    .step-circle.active {
+      border-color: #3b82f6;
+      color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+    }
+
+    .step-circle.completed {
+      border-color: #10b981;
+      background-color: #10b981;
+      color: #ffffff;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.95rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: #3b82f6;
+    }
+
+    .error-msg {
+      color: #dc2626;
+      font-size: 0.82rem;
+      margin-top: 0.4rem;
+      min-height: 1.2rem;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.65rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary {
+      background-color: #e2e8f0;
+      color: #334155;
+    }
+
+    .btn-secondary:hover {
+      background-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background-color: #3b82f6;
+      color: #ffffff;
+      margin-left: auto;
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+
+    /* Summary Card */
+    .summary-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #eef2f5;
+      font-size: 0.95rem;
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .summary-label {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .summary-value {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .success-badge {
+      background-color: #dcfce7;
+      color: #15803d;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Multi-Step Registration</h1>
+      <p>Assignment 7: Question 3 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <!-- Visual step indicator -->
+    <div class="step-indicator">
+      <div class="step-circle active" id="circle1">1</div>
+      <div class="step-circle" id="circle2">2</div>
+      <div class="step-circle" id="circle3">3</div>
+      <div class="step-circle" id="circle4">&#10003;</div>
+    </div>
+
+    <!-- Step 1: Name -->
+    <div class="form-step active" id="step1">
+      <div class="form-group">
+        <label for="nameInput">Full Name</label>
+        <input type="text" id="nameInput" placeholder="e.g. John Doe" autocomplete="name">
+        <div class="error-msg" id="nameError"></div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-primary" id="nextBtn1">Next &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Email -->
+    <div class="form-step" id="step2">
+      <div class="form-group">
+        <label for="emailInput">Email Address</label>
+        <input type="email" id="emailInput" placeholder="e.g. user@example.com" autocomplete="email">
+        <div class="error-msg" id="emailError"></div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary" id="backBtn2">&larr; Back</button>
+        <button type="button" class="btn btn-primary" id="nextBtn2">Next &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Password -->
+    <div class="form-step" id="step3">
+      <div class="form-group">
+        <label for="passwordInput">Password (Min. 6 characters)</label>
+        <input type="password" id="passwordInput" placeholder="Enter secure password" autocomplete="new-password">
+        <div class="error-msg" id="passwordError"></div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary" id="backBtn3">&larr; Back</button>
+        <button type="button" class="btn btn-primary" id="submitBtn3">Submit</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Summary Review -->
+    <div class="form-step" id="stepSummary">
+      <div class="success-badge">Submission Complete! Review your details below:</div>
+      <div class="summary-card">
+        <div class="summary-item">
+          <span class="summary-label">Name:</span>
+          <span class="summary-value" id="summaryName">-</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Email:</span>
+          <span class="summary-value" id="summaryEmail">-</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Password:</span>
+          <span class="summary-value" id="summaryPassword">-</span>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary" id="restartBtn">Start Over</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="q3.js" defer></script>
+</body>
+</html>
+

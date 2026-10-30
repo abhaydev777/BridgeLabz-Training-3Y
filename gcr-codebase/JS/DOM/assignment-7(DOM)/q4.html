@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 4 - Theme Switcher</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    /* CSS variables per theme via data-theme attribute */
+    body[data-theme="light"] {
+      --bg-page: #f4f6f8;
+      --bg-card: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --accent-color: #3b82f6;
+      --btn-active-bg: #3b82f6;
+      --btn-active-text: #ffffff;
+    }
+
+    body[data-theme="dark"] {
+      --bg-page: #0f172a;
+      --bg-card: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --accent-color: #60a5fa;
+      --btn-active-bg: #60a5fa;
+      --btn-active-text: #0f172a;
+    }
+
+    body[data-theme="blue"] {
+      --bg-page: #0c4a6e;
+      --bg-card: #075985;
+      --text-main: #f0f9ff;
+      --text-muted: #bae6fd;
+      --border-color: #0284c7;
+      --accent-color: #38bdf8;
+      --btn-active-bg: #38bdf8;
+      --btn-active-text: #082f49;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 540px;
+      background-color: var(--bg-card);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .theme-btn {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 2px solid var(--border-color);
+      background-color: transparent;
+      color: var(--text-main);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .theme-btn:hover {
+      border-color: var(--accent-color);
+    }
+
+    .theme-btn.active {
+      background-color: var(--btn-active-bg);
+      color: var(--btn-active-text);
+      border-color: var(--btn-active-bg);
+    }
+
+    .preview-card {
+      padding: 1.25rem;
+      border-radius: 8px;
+      border: 1px dashed var(--border-color);
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    body[data-theme="dark"] .preview-card,
+    body[data-theme="blue"] .preview-card {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .preview-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+
+    .preview-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background-color: var(--border-color);
+      color: var(--text-main);
+    }
+  </style>
+</head>
+<body data-theme="light" class="light-theme">
+
+  <main class="container">
+    <header class="header">
+      <h1>Theme Switcher</h1>
+      <p>Assignment 7: Question 4 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <!-- Theme selection buttons -->
+    <div class="button-group">
+      <button type="button" class="theme-btn active" id="btnLight" data-theme="light">Light</button>
+      <button type="button" class="theme-btn" id="btnDark" data-theme="dark">Dark</button>
+      <button type="button" class="theme-btn" id="btnBlue" data-theme="blue">Blue</button>
+    </div>
+
+    <!-- Live preview area -->
+    <section class="preview-card">
+      <h2>Theme Preview Component</h2>
+      <p>
+        The page theme dynamically updates using DOM <code>setAttribute()</code> to modify 
+        <code>data-theme</code> and body classes. Notice the smooth CSS variable transitions.
+      </p>
+      <div class="status-badge" id="themeStatus">Active Theme: light</div>
+    </section>
+  </main>
+
+  <script src="q4.js" defer></script>
+</body>
+</html>
+

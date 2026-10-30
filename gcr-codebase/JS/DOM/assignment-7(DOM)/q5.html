@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 5 - Image Gallery with Modal Preview</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* 6 image grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .gallery-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      background-color: #e2e8f0;
+      aspect-ratio: 4 / 3;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-card .caption-tag {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+      color: #ffffff;
+      font-size: 0.85rem;
+      padding: 1rem 0.75rem 0.5rem;
+      font-weight: 500;
+    }
+
+    /* Modal Overlay (backdrop) */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Modal Content Container */
+    .modal-content {
+      position: relative;
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 680px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transform: scale(0.92);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-image-wrapper {
+      width: 100%;
+      max-height: 450px;
+      background-color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .modal-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      max-height: 450px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-caption-area {
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+    }
+
+    .modal-caption-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      border: none;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .close-btn:hover {
+      background: rgba(0, 0, 0, 0.85);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Responsive Image Gallery</h1>
+      <p>Assignment 7: Question 5 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-card" data-full="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1000&auto=format&fit=crop&q=80" data-caption="Alpine Lake & Mountains">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&auto=format&fit=crop&q=80" alt="Alpine Lake & Mountains" loading="lazy">
+        <div class="caption-tag">Alpine Lake & Mountains</div>
+      </div>
+
+      <div class="gallery-card" data-full="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1000&auto=format&fit=crop&q=80" data-caption="Misty Mountain Forest">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=300&auto=format&fit=crop&q=80" alt="Misty Mountain Forest" loading="lazy">
+        <div class="caption-tag">Misty Mountain Forest</div>
+      </div>
+
+      <div class="gallery-card" data-full="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=1000&auto=format&fit=crop&q=80" data-caption="Golden Autumn Woods">
+        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=300&auto=format&fit=crop&q=80" alt="Golden Autumn Woods" loading="lazy">
+        <div class="caption-tag">Golden Autumn Woods</div>
+      </div>
+
+      <div class="gallery-card" data-full="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1000&auto=format&fit=crop&q=80" data-caption="Rolling Green Meadows">
+        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&h=300&auto=format&fit=crop&q=80" alt="Rolling Green Meadows" loading="lazy">
+        <div class="caption-tag">Rolling Green Meadows</div>
+      </div>
+
+      <div class="gallery-card" data-full="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1000&auto=format&fit=crop&q=80" data-caption="Sunlight Through Canopy">
+        <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=400&h=300&auto=format&fit=crop&q=80" alt="Sunlight Through Canopy" loading="lazy">
+        <div class="caption-tag">Sunlight Through Canopy</div>
+      </div>
+
+      <div class="gallery-card" data-full="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1000&auto=format&fit=crop&q=80" data-caption="Mountain Sunset Valley">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&auto=format&fit=crop&q=80" alt="Mountain Sunset Valley" loading="lazy">
+        <div class="caption-tag">Mountain Sunset Valley</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Preview -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content" id="modalContent">
+      <button class="close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Modal preview">
+      </div>
+      <div class="modal-caption-area">
+        <span class="modal-caption-text" id="modalCaption"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="q5.js" defer></script>
+</body>
+</html>
+

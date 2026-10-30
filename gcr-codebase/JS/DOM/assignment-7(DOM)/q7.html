@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <title>Question 7 - Mouse Path & Coordinates Logger</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 0.8rem;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* Exactly 400px by 400px tracking box */
+    .tracking-box {
+      width: 400px;
+      height: 400px;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      background-color: #f8fafc;
+      position: relative;
+      overflow: hidden;
+      cursor: crosshair;
+      user-select: none;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .tracking-box::before {
+      content: "Hover to track | Double-click to drop red dot";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.85rem;
+      color: #94a3b8;
+      pointer-events: none;
+      text-align: center;
+      width: 80%;
+    }
+
+    /* Red dot placed on double click */
+    .red-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      box-shadow: 0 0 4px rgba(239, 68, 68, 0.6);
+      animation: pop 0.2s ease-out;
+    }
+
+    @keyframes pop {
+      0% { transform: translate(-50%, -50%) scale(0.3); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    /* Coordinates log grid */
+    .coords-panel {
+      width: 400px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .coord-card {
+      background: #f1f5f9;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .coord-card .title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 0.25rem;
+    }
+
+    .coord-card .value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1e293b;
+      font-family: monospace;
+    }
+
+    .actions {
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .dot-count {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .btn-clear {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-clear:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Mouse Path &amp; Coordinates Logger</h1>
+      <p>Assignment 7: Question 7 &bull; Abhay Pratap Singh</p>
+    </header>
+
+    <!-- 400px by 400px box -->
+    <div id="trackerBox" class="tracking-box"></div>
+
+    <!-- Live coordinates readout -->
+    <div class="coords-panel">
+      <div class="coord-card">
+        <div class="title">Viewport (clientX, clientY)</div>
+        <div class="value" id="clientCoords">X: 0, Y: 0</div>
+      </div>
+      <div class="coord-card">
+        <div class="title">Relative (offsetX, offsetY)</div>
+        <div class="value" id="offsetCoords">X: 0, Y: 0</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <span class="dot-count" id="dotCounter">Dots Placed: 0</span>
+      <button type="button" class="btn-clear" id="clearDotsBtn">Clear Dots</button>
+    </div>
+  </main>
+
+  <script src="q7.js" defer></script>
+</body>
+</html>
+
