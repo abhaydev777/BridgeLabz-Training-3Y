@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Store - Product Dashboard (Async Fetch)</title>
+  <link rel="stylesheet" href="q6.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🛍️ Fake Store - Product Dashboard</h1>
+      <p>Dynamic product catalog loaded asynchronously via Fetch API</p>
+      <div class="controls">
+        <button id="refreshBtn" class="btn-refresh" onclick="fetchAndDisplayProducts()">🔄 Reload Products</button>
+      </div>
+    </header>
+
+    <div id="statusMessage" class="status loading">Loading products...</div>
+
+    <main id="productGrid" class="product-grid">
+      <!-- Product cards will be dynamically injected here via q6.js -->
+    </main>
+
+    <footer>
+      <p>Assignment 6: Question 6 | Author: Abhay Pratap Singh</p>
+    </footer>
+  </div>
+
+  <script src="q6.js"></script>
+</body>
+</html>
+
