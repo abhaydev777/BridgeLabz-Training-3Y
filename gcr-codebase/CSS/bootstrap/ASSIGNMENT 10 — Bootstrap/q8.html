@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <meta name="description" content="Assignment 10 - Question 8: SaaS Pricing Plans comparing Basic, Pro, and Enterprise tiers using Bootstrap 5 cards.">
+  <title>Q8: Pricing Plans (Panels &amp; Cards) | Bootstrap 5</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Companion Custom CSS -->
+  <link rel="stylesheet" href="q8.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Assignment Header Bar -->
+  <div class="assignment-bar bg-dark text-white py-1 small">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><strong>Assignment 10 &bull; Question 8:</strong> Panels &amp; Cards (Pricing Plans)</span>
+      <a href="index.html" class="text-white text-decoration-none">
+        <i class="bi bi-arrow-left-circle me-1"></i>Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <main class="container my-5">
+    
+    <!-- Section Header: "Choose Your Plan" -->
+    <section class="text-center mb-5">
+      <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 rounded-pill mb-2 fw-semibold">
+        Transparent &bull; Scalable &bull; Predictable
+      </span>
+      <h1 class="display-5 fw-bold text-dark">Choose Your Plan</h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 650px;">
+        Deploy instantly on our serverless edge network. Switch plans anytime with zero cancellation penalties.
+      </p>
+
+      <!-- Student Card & Panel Documentation Callout -->
+      <div class="p-2 bg-white rounded border small text-muted d-inline-block text-start mt-2 shadow-sm">
+        <i class="bi bi-layers-fill text-primary me-1"></i>
+        <strong>Student Note:</strong> In Bootstrap 5, legacy <code>.panel</code> components are unified into modular <code>.card</code>, <code>.card-header</code>, and <code>.card-body</code>. 
+        Grid: <code>.row</code> with <code>.col-md-4</code> renders 3 balanced columns on desktop screens.
+      </div>
+    </section>
+
+    <!-- 3 Side-by-Side Cards using .row and .col-md-4 -->
+    <div class="row g-4 align-items-center justify-content-center">
+
+      <!-- Plan 1: Basic Plan -->
+      <div class="col-12 col-md-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 pricing-card">
+          <div class="card-header bg-white border-bottom-0 pt-4 px-4 pb-0 text-center">
+            <h4 class="fw-bold text-dark mb-1">Basic</h4>
+            <p class="text-muted small">For independent developers &amp; side projects</p>
+            <div class="my-3">
+              <span class="display-5 fw-bold text-dark">$15</span>
+              <span class="text-muted">/ month</span>
+            </div>
+          </div>
+          <div class="card-body px-4 py-3 d-flex flex-column">
+            <!-- Feature Checklist -->
+            <ul class="list-unstyled mb-4 flex-grow-1">
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>5 Microservice Deployments</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>100 GB Global CDN Bandwidth</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Community Forum Support</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2 text-muted text-decoration-line-through">
+                <i class="bi bi-x-circle text-secondary"></i>
+                <span>Custom Domain SSL Certificates</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2 text-muted text-decoration-line-through">
+                <i class="bi bi-x-circle text-secondary"></i>
+                <span>Dedicated Enterprise Account Rep</span>
+              </li>
+            </ul>
+            <button class="btn btn-outline-primary btn-lg w-100 rounded-pill fw-semibold">
+              Get Started Free
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan 2: Pro Plan (Highlighted with distinct accent styling .bg-primary .text-white) -->
+      <div class="col-12 col-md-4">
+        <div class="card h-100 border-0 shadow-lg rounded-4 pricing-card featured-pro-card bg-primary text-white position-relative">
+          <!-- Popular Ribbon Badge -->
+          <div class="position-absolute top-0 start-50 translate-middle">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold shadow-sm">
+              <i class="bi bi-star-fill me-1"></i>MOST POPULAR
+            </span>
+          </div>
+
+          <div class="card-header bg-transparent border-bottom-0 pt-5 px-4 pb-0 text-center">
+            <h4 class="fw-bold text-white mb-1">Pro Developer</h4>
+            <p class="text-white-50 small">For high-velocity startups &amp; growing apps</p>
+            <div class="my-3">
+              <span class="display-4 fw-bold text-white">$49</span>
+              <span class="text-white-50">/ month</span>
+            </div>
+          </div>
+          <div class="card-body px-4 py-3 d-flex flex-column">
+            <!-- Feature Checklist -->
+            <ul class="list-unstyled mb-4 flex-grow-1 text-white">
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span class="fw-semibold">Unlimited Microservices</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span>1 TB High-Speed Bandwidth</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span>Automated Zero-Downtime Rollbacks</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span>Custom SSL &amp; Automated DDOS Shield</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span>Priority 24/7 Slack Engineer Support</span>
+              </li>
+            </ul>
+            <button class="btn btn-light text-primary btn-lg w-100 rounded-pill fw-bold shadow">
+              Start 14-Day Free Trial
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan 3: Enterprise Plan -->
+      <div class="col-12 col-md-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 pricing-card">
+          <div class="card-header bg-white border-bottom-0 pt-4 px-4 pb-0 text-center">
+            <h4 class="fw-bold text-dark mb-1">Enterprise</h4>
+            <p class="text-muted small">For multinational corporations &amp; scale-ups</p>
+            <div class="my-3">
+              <span class="display-5 fw-bold text-dark">$199</span>
+              <span class="text-muted">/ month</span>
+            </div>
+          </div>
+          <div class="card-body px-4 py-3 d-flex flex-column">
+            <!-- Feature Checklist -->
+            <ul class="list-unstyled mb-4 flex-grow-1">
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Everything in Pro Plan</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Unlimited Global Bandwidth</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Custom Isolated Hardware Clusters</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>SLA 99.999% Guaranteed Financial Backing</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Dedicated Solutions Architect &amp; Support</span>
+              </li>
+            </ul>
+            <button class="btn btn-outline-dark btn-lg w-100 rounded-pill fw-semibold">
+              Contact Sales Team
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Semantic Footer with Author Metadata -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-1">&copy; 2026 Apex Cloud Infrastructure &bull; Abhay Pratap Singh</p>
+      <small class="text-secondary">Assignment 10 &bull; Question 8: Pricing Plans (Panels &amp; Cards)</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

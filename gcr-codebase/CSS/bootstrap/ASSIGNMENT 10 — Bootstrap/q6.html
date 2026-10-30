@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <meta name="description" content="Assignment 10 - Question 6: Notifications Dashboard demonstrating Bootstrap 5 contextual alerts, dismissible alerts, and modern well replacements.">
+  <title>Q6: Notifications Dashboard | Bootstrap 5</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Companion Custom CSS -->
+  <link rel="stylesheet" href="q6.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Assignment Header Bar -->
+  <div class="assignment-bar bg-dark text-white py-1 small">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><strong>Assignment 10 &bull; Question 6:</strong> Alerts &amp; Wells (Notifications Dashboard)</span>
+      <a href="index.html" class="text-white text-decoration-none">
+        <i class="bi bi-arrow-left-circle me-1"></i>Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white border-bottom shadow-sm py-3 mb-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-bell-fill text-primary fs-3"></i>
+        <span class="fs-4 fw-bold text-dark">Developer Security &amp; Activity Center</span>
+      </div>
+      <div>
+        <span class="badge bg-danger rounded-pill px-3 py-2">
+          <i class="bi bi-shield-exclamation me-1"></i>System Active
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+
+        <!-- Student Implementation Callout -->
+        <div class="alert alert-primary mb-4 shadow-sm" role="alert">
+          <h5 class="alert-heading fw-bold d-flex align-items-center">
+            <i class="bi bi-lightbulb-fill text-warning me-2"></i>Student Assignment Implementation Notes:
+          </h5>
+          <p class="mb-0 small">
+            This dashboard demonstrates contextual alerts (<strong>.alert-success</strong>, <strong>.alert-info</strong>, <strong>.alert-danger</strong>).
+            The warning alert is made interactive using <code>.alert-dismissible .fade .show</code> with a native <code>.btn-close</code> data attribute.
+            Bootstrap 5 dropped legacy <code>.well</code> classes, replacing them with modular utilities: <code>.bg-light .p-4 .rounded .border</code>.
+          </p>
+        </div>
+
+        <!-- Dashboard Container Grouping Contextual Alerts inside a .card Wrapper -->
+        <section class="card shadow-sm border-0 rounded-4 overflow-hidden mb-5">
+          <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+            <div>
+              <h4 class="fw-bold text-dark mb-0">System Notification Feed</h4>
+              <small class="text-muted">Real-time alerts processed by cloud monitor daemon</small>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm" onclick="location.reload();">
+              <i class="bi bi-arrow-clockwise me-1"></i>Refresh Feed
+            </button>
+          </div>
+
+          <div class="card-body p-4">
+
+            <!-- 1. Alert Success: New Messages / Deployment Notification -->
+            <div class="alert alert-success d-flex align-items-center gap-3 p-3 shadow-sm border-start border-success border-4" role="alert">
+              <i class="bi bi-check-circle-fill fs-3 text-success flex-shrink-0"></i>
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="alert-heading fw-bold mb-1">Production Deployment Succeeded!</h6>
+                  <small class="text-success-emphasis">2 mins ago</small>
+                </div>
+                <p class="mb-0 small">
+                  Release v2.4.1 has been successfully deployed to the <code>us-east-1</code> cluster. All 16 microservice health checks passed with zero downtime.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2. Alert Info: Pro Tips & Advice -->
+            <div class="alert alert-info d-flex align-items-center gap-3 p-3 shadow-sm border-start border-info border-4" role="alert">
+              <i class="bi bi-info-circle-fill fs-3 text-info flex-shrink-0"></i>
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="alert-heading fw-bold mb-1">Developer Productivity Tip</h6>
+                  <small class="text-info-emphasis">1 hour ago</small>
+                </div>
+                <p class="mb-0 small">
+                  Antigravity Cloud CLI v3.8 is now available. Run <code>npm update -g @antigravity/cli</code> to unlock automatic bundle compression and fast-refresh previews.
+                </p>
+              </div>
+            </div>
+
+            <!-- 3. Alert Danger (Dismissible): Warning with Close Button -->
+            <!-- Utilizes: .alert-danger, .alert-dismissible, .fade, .show, and <button class="btn-close" data-bs-dismiss="alert"> -->
+            <div class="alert alert-danger alert-dismissible fade show d-flex align-items-start gap-3 p-3 shadow-sm border-start border-danger border-4" role="alert">
+              <i class="bi bi-exclamation-triangle-fill fs-3 text-danger flex-shrink-0 mt-1"></i>
+              <div class="flex-grow-1 pe-4">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="alert-heading fw-bold mb-1">Security Warning: High Disk Space Utilization</h6>
+                  <span class="badge bg-danger">Critical</span>
+                </div>
+                <p class="mb-2 small">
+                  Log volume on database replica <strong>db-shard-03</strong> has reached <strong>89.4% capacity</strong>. Immediate log rotation or volume expansion is advised.
+                </p>
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn btn-danger btn-sm px-3">Purge Old Logs</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm px-3">Investigate Shard</button>
+                </div>
+              </div>
+              <!-- Dismissible Button powered by Bootstrap 5 JS Bundle -->
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Summary Well Section using bordered, padded .bg-light .p-4 .rounded .border -->
+        <section class="summary-well bg-light p-4 rounded-4 border shadow-sm">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-8">
+              <h5 class="fw-bold text-dark mb-1">
+                <i class="bi bi-hdd-stack-fill text-primary me-2"></i>Infrastructure Health Summary Well
+              </h5>
+              <p class="text-secondary small mb-md-0">
+                Bootstrap 5 modern well structure built using utility combination: <code>.bg-light .p-4 .rounded .border</code>.
+                All operational metrics are currently synchronized across 3 regions.
+              </p>
+            </div>
+            <div class="col-12 col-md-4 text-md-end">
+              <div class="d-inline-flex flex-column align-items-md-end">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fw-semibold">
+                  <i class="bi bi-circle-fill me-1 small"></i>All Systems Operational
+                </span>
+                <span class="text-muted small mt-1">Uptime: 99.98% (Last 30 Days)</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Semantic Footer with Author Metadata -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-1">&copy; 2026 Cloud Monitor Portal &bull; Abhay Pratap Singh</p>
+      <small class="text-secondary">Assignment 10 &bull; Question 6: Notifications Dashboard (Alerts &amp; Wells)</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS (Required for alert dismiss functionality) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

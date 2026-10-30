@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <meta name="description" content="Assignment 10 - Question 7: Task Tracker with contextual priority badges and interactive counter buttons.">
+  <title>Q7: Task Tracker with Badges | Bootstrap 5</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Companion Custom CSS -->
+  <link rel="stylesheet" href="q7.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Assignment Navigation Ribbon -->
+  <div class="assignment-bar bg-dark text-white py-1 small">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><strong>Assignment 10 &bull; Question 7:</strong> Badges &amp; Lists (Task Tracker)</span>
+      <a href="index.html" class="text-white text-decoration-none">
+        <i class="bi bi-arrow-left-circle me-1"></i>Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+
+        <!-- Task Tracker Card Container -->
+        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+          
+          <!-- Header with Badge Counter Showing Total Pending Tasks (.badge .bg-primary) -->
+          <div class="card-header bg-white border-bottom p-4">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+              <div>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 rounded-pill mb-1">
+                  Sprint Backlog #14
+                </span>
+                <h2 class="fw-bold text-dark mb-0 d-flex align-items-center gap-2">
+                  <span>Task Tracker</span>
+                  <!-- Header Badge Counter for Total Pending Tasks -->
+                  <span class="badge bg-primary rounded-pill fs-6" title="Total Pending Tasks">
+                    5 Pending
+                  </span>
+                </h2>
+              </div>
+
+              <!-- Action Button: "Completed" (.btn) with Embedded Badge Indicator -->
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-success d-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm">
+                  <i class="bi bi-check2-all"></i>
+                  <span>Completed</span>
+                  <!-- Embedded Badge Indicator inside the button -->
+                  <span class="badge bg-success rounded-pill ms-1">4</span>
+                </button>
+                <button type="button" class="btn btn-primary d-flex align-items-center gap-1 px-3 py-2 rounded-pill shadow-sm">
+                  <i class="bi bi-plus-lg"></i>
+                  <span class="d-none d-sm-inline">New Task</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Student Documentation Note -->
+          <div class="px-4 pt-3 pb-0">
+            <div class="alert alert-secondary mb-0 small py-2 px-3" role="alert">
+              <i class="bi bi-info-circle-fill text-primary me-1"></i>
+              <strong>Student Implementation:</strong> Items use Bootstrap <code>.list-group</code>. Priority badges include High (<code>.bg-danger</code>), Medium (<code>.bg-warning .text-dark</code>), and Low (<code>.bg-success</code>).
+            </div>
+          </div>
+
+          <!-- Task Manager List using Bootstrap .list-group -->
+          <div class="card-body p-4">
+            <ul class="list-group list-group-flush border rounded-3 overflow-hidden">
+
+              <!-- Task 1: High Priority (.bg-danger) -->
+              <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                <div class="d-flex align-items-center gap-3">
+                  <input class="form-check-input mt-0 fs-5" type="checkbox" aria-label="Mark task done">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">Fix OAuth2 Token Refresh Expiry Bug</h6>
+                    <small class="text-secondary"><i class="bi bi-calendar3 me-1"></i>Due Today, 5:00 PM &bull; Auth Microservice</small>
+                  </div>
+                </div>
+                <!-- High Priority Badge (.bg-danger) -->
+                <span class="badge bg-danger rounded-pill px-3 py-2 text-uppercase fw-semibold">
+                  <i class="bi bi-fire me-1"></i>High
+                </span>
+              </li>
+
+              <!-- Task 2: High Priority (.bg-danger) -->
+              <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                <div class="d-flex align-items-center gap-3">
+                  <input class="form-check-input mt-0 fs-5" type="checkbox" aria-label="Mark task done">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">Patch Critical PostgreSQL Connection Leak</h6>
+                    <small class="text-secondary"><i class="bi bi-calendar3 me-1"></i>Due Tomorrow &bull; Database Pods</small>
+                  </div>
+                </div>
+                <!-- High Priority Badge (.bg-danger) -->
+                <span class="badge bg-danger rounded-pill px-3 py-2 text-uppercase fw-semibold">
+                  <i class="bi bi-fire me-1"></i>High
+                </span>
+              </li>
+
+              <!-- Task 3: Medium Priority (.bg-warning .text-dark) -->
+              <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                <div class="d-flex align-items-center gap-3">
+                  <input class="form-check-input mt-0 fs-5" type="checkbox" aria-label="Mark task done">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">Refactor Bootstrap 5 Grid in Billing Modal</h6>
+                    <small class="text-secondary"><i class="bi bi-calendar3 me-1"></i>Due in 2 days &bull; Frontend Web</small>
+                  </div>
+                </div>
+                <!-- Medium Priority Badge (.bg-warning .text-dark) -->
+                <span class="badge bg-warning text-dark rounded-pill px-3 py-2 text-uppercase fw-semibold">
+                  <i class="bi bi-exclamation-circle me-1"></i>Medium
+                </span>
+              </li>
+
+              <!-- Task 4: Medium Priority (.bg-warning .text-dark) -->
+              <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                <div class="d-flex align-items-center gap-3">
+                  <input class="form-check-input mt-0 fs-5" type="checkbox" aria-label="Mark task done">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">Add Unit Tests for Stripe Webhook Handler</h6>
+                    <small class="text-secondary"><i class="bi bi-calendar3 me-1"></i>Due Nov 3 &bull; Payments Core</small>
+                  </div>
+                </div>
+                <!-- Medium Priority Badge (.bg-warning .text-dark) -->
+                <span class="badge bg-warning text-dark rounded-pill px-3 py-2 text-uppercase fw-semibold">
+                  <i class="bi bi-exclamation-circle me-1"></i>Medium
+                </span>
+              </li>
+
+              <!-- Task 5: Low Priority (.bg-success) -->
+              <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                <div class="d-flex align-items-center gap-3">
+                  <input class="form-check-input mt-0 fs-5" type="checkbox" aria-label="Mark task done">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">Update Swagger API Documentation Readme</h6>
+                    <small class="text-secondary"><i class="bi bi-calendar3 me-1"></i>Due Nov 6 &bull; Documentation</small>
+                  </div>
+                </div>
+                <!-- Low Priority Badge (.bg-success) -->
+                <span class="badge bg-success rounded-pill px-3 py-2 text-uppercase fw-semibold">
+                  <i class="bi bi-flag-fill me-1"></i>Low
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- Card Footer with Filter Pills -->
+          <div class="card-footer bg-light px-4 py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <span class="text-muted small">Showing 5 of 9 total team tickets</span>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Task Filters">
+              <button type="button" class="btn btn-outline-secondary active">All</button>
+              <button type="button" class="btn btn-outline-secondary">High</button>
+              <button type="button" class="btn btn-outline-secondary">Medium</button>
+              <button type="button" class="btn btn-outline-secondary">Low</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Semantic Footer with Author Metadata -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-1">&copy; 2026 Developer Task Tracker &bull; Abhay Pratap Singh</p>
+      <small class="text-secondary">Assignment 10 &bull; Question 7: Task Tracker with Badges</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Assignment 10 - Question 9: Blog Pagination & Pager Companion Stylesheet
+   Author: Abhay Pratap Singh
+   Description: Enhances pagination component pills, article card borders, and pagers.
+   ========================================================================== */
+
+.assignment-bar {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  background-color: #111827 !important;
+}
+
+/* Article Card Enhancements */
+.article-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Pagination Customization */
+.pagination {
+  border: 1px solid #e2e8f0;
+}
+
+.page-item .page-link {
+  color: #334155;
+  border: none;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.page-item .page-link:hover {
+  background-color: #f1f5f9;
+  color: #0d6efd;
+}
+
+.page-item.active .page-link {
+  background-color: #0d6efd;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+}
+
+/* Pager Button Micro-Interactions */
+.btn-outline-secondary {
+  transition: all 0.25s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #334155;
+  border-color: #334155;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+

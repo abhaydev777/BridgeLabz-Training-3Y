@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Assignment 10 - Question 5: Custom Themed Blog Companion Stylesheet
+   Author: Abhay Pratap Singh
+   Description: Overrides Bootstrap 5 CSS variables (:root) with custom brand
+                teal (#0d9488) and Google Font 'Plus Jakarta Sans'.
+   ========================================================================== */
+
+/* Bootstrap 5 Native CSS Variable Overrides */
+:root {
+  /* Brand Teal Palette */
+  --bs-primary: #0d9488;
+  --bs-primary-rgb: 13, 148, 136;
+  --bs-link-color: #0d9488;
+  --bs-link-hover-color: #0f766e;
+  
+  /* Font Family Override */
+  --bs-font-sans-serif: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+}
+
+body {
+  font-family: var(--bs-font-sans-serif);
+}
+
+.assignment-bar {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  background-color: #111827 !important;
+}
+
+/* Custom Themed Badges */
+.theme-badge {
+  background-color: rgba(13, 148, 136, 0.12) !important;
+  color: #0d9488 !important;
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  font-weight: 600;
+}
+
+/* Custom Primary Button Theme */
+.btn-primary {
+  background-color: #0d9488 !important;
+  border-color: #0d9488 !important;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0f766e !important;
+  border-color: #0f766e !important;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.35) !important;
+}
+
+/* Blog Cards */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(13, 148, 136, 0.12) !important;
+}
+
+.blog-thumb {
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-thumb {
+  transform: scale(1.04);
+}
+

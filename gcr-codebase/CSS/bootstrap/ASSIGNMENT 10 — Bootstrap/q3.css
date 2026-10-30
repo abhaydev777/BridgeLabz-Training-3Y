@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Assignment 10 - Question 3: Product Catalog Companion Stylesheet
+   Author: Abhay Pratap Singh
+   Description: Smooth hover transitions, image zoom, and card lift depth.
+   ========================================================================== */
+
+.assignment-bar {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  background-color: #111827 !important;
+}
+
+/* Product Card Smooth Transitions and Hover Lift */
+.product-card {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Card Image Box and Zoom Effect */
+.product-img-box {
+  height: 220px;
+  background-color: #f1f5f9;
+}
+
+.product-card .card-img-top {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-img-top {
+  transform: scale(1.06);
+}
+
+/* Button micro-interaction */
+.product-card .btn-primary {
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.product-card .btn-primary:active {
+  transform: scale(0.98);
+}
+

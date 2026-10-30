@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <meta name="description" content="Assignment 10 - Question 3: Responsive Product Catalog built using Bootstrap 5 12-column grid system.">
+  <title>Q3: Product Catalog Grid | Bootstrap 5</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Companion Custom CSS -->
+  <link rel="stylesheet" href="q3.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Assignment Header Bar -->
+  <div class="assignment-bar bg-dark text-white py-1 small">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><strong>Assignment 10 &bull; Question 3:</strong> Bootstrap Grid System (Product Catalog)</span>
+      <a href="index.html" class="text-white text-decoration-none">
+        <i class="bi bi-arrow-left-circle me-1"></i>Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="bg-white border-bottom shadow-sm mb-4">
+    <div class="container py-3 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-shop-window text-primary fs-3"></i>
+        <span class="fs-4 fw-bold text-dark">Apex Gear Store</span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-outline-secondary btn-sm position-relative">
+          <i class="bi bi-cart3 fs-5"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            4
+            <span class="visually-hidden">items in cart</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Catalog Content -->
+  <main class="container my-5">
+    <!-- Catalog Header with Student Explanation -->
+    <div class="text-center mb-5">
+      <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 rounded-pill mb-2">Featured Hardware</span>
+      <h1 class="fw-bold text-dark">Pro Developer Gear Catalog</h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 650px;">
+        High-performance developer accessories engineered for ergonomic longevity, productivity, and uninterrupted flow state.
+      </p>
+
+      <!-- Student Grid Note -->
+      <div class="p-2 bg-white rounded border small text-muted d-inline-block text-start mt-2 shadow-sm">
+        <i class="bi bi-grid-3x3-gap-fill text-primary me-1"></i>
+        <strong>Grid Breakdown:</strong> <code>.col-12</code> (Mobile: 1 column) &bull; <code>.col-sm-6</code> (Tablet: 2 columns) &bull; <code>.col-md-3</code> (Desktop &ge; 768px: 4 columns).
+      </div>
+    </div>
+
+    <!-- 4-Column Product Grid utilizing .row and responsive .col-* classes -->
+    <!-- .g-4 applies uniform horizontal and vertical gutter spacing between cards -->
+    <div class="row g-4">
+      
+      <!-- Product Card 1 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card h-100 shadow-sm product-card border-0">
+          <div class="position-relative overflow-hidden product-img-box">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" 
+                 class="card-img-top" 
+                 alt="Wireless Studio ANC Headphones">
+            <span class="badge bg-dark position-absolute top-0 end-0 m-2">Popular</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted small">Audio</span>
+              <!-- Price Badge -->
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle fs-6">$249.00</span>
+            </div>
+            <h5 class="card-title fw-bold">Studio ANC Headphones</h5>
+            <p class="card-text text-secondary small flex-grow-1">
+              Active noise cancellation with 40-hour battery life and custom planar magnetic audio drivers.
+            </p>
+            <div class="mt-3">
+              <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-cart-plus"></i>Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card h-100 shadow-sm product-card border-0">
+          <div class="position-relative overflow-hidden product-img-box">
+            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80" 
+                 class="card-img-top" 
+                 alt="Mechanical Gaming Keyboard">
+            <span class="badge bg-success position-absolute top-0 end-0 m-2">In Stock</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted small">Peripherals</span>
+              <!-- Price Badge -->
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle fs-6">$139.00</span>
+            </div>
+            <h5 class="card-title fw-bold">Tactile Mechanical Board</h5>
+            <p class="card-text text-secondary small flex-grow-1">
+              Hot-swappable tactile switches, sound-dampening gasket mount, and per-key customizable RGB.
+            </p>
+            <div class="mt-3">
+              <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-cart-plus"></i>Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card h-100 shadow-sm product-card border-0">
+          <div class="position-relative overflow-hidden product-img-box">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" 
+                 class="card-img-top" 
+                 alt="Smart Fitness Track Watch">
+            <span class="badge bg-danger position-absolute top-0 end-0 m-2">-15% OFF</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted small">Wearables</span>
+              <!-- Price Badge -->
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle fs-6">$189.00</span>
+            </div>
+            <h5 class="card-title fw-bold">Apex Watch Pro</h5>
+            <p class="card-text text-secondary small flex-grow-1">
+              Titanium bezel, 14-day battery, real-time heart rate sensor, and water resistance up to 50 meters.
+            </p>
+            <div class="mt-3">
+              <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-cart-plus"></i>Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card h-100 shadow-sm product-card border-0">
+          <div class="position-relative overflow-hidden product-img-box">
+            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80" 
+                 class="card-img-top" 
+                 alt="Ergonomic Wireless Mouse">
+            <span class="badge bg-info text-dark position-absolute top-0 end-0 m-2">New</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted small">Ergonomics</span>
+              <!-- Price Badge -->
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle fs-6">$89.00</span>
+            </div>
+            <h5 class="card-title fw-bold">Precision Ergo Mouse</h5>
+            <p class="card-text text-secondary small flex-grow-1">
+              Ergonomic vertical hand grip reducing wrist strain, 4000 DPI Darkfield laser tracking sensor.
+            </p>
+            <div class="mt-3">
+              <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-cart-plus"></i>Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Semantic Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-1">&copy; 2026 Apex Gear Store &bull; All Rights Reserved.</p>
+      <small class="text-secondary">Assignment 10 &bull; Question 3: Bootstrap Grid System &bull; Abhay Pratap Singh</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

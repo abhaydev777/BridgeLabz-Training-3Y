@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abhay Pratap Singh">
+  <meta name="description" content="Assignment 10 - Bootstrap 5 Master Hub linking to all 10 exercises completed by Abhay Pratap Singh.">
+  <title>Assignment 10 &mdash; Bootstrap 5 Master Hub | Abhay Pratap Singh</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%);
+      color: #ffffff;
+      border-bottom: 4px solid #0d9488;
+    }
+
+    .exercise-card {
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+    .exercise-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08) !important;
+      border-color: #cbd5e1;
+    }
+
+    .q-number-pill {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .code-badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.75rem;
+      background-color: #f1f5f9;
+      color: #334155;
+      border: 1px solid #e2e8f0;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Hero Header -->
+  <header class="hero-banner py-5 shadow-sm">
+    <div class="container py-3">
+      <div class="row align-items-center gy-4">
+        <div class="col-12 col-lg-8">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold">
+              <i class="bi bi-mortarboard-fill me-1"></i>Full Stack Web Development &bull; 3rd Year
+            </span>
+            <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-1 rounded-pill fw-semibold">
+              <i class="bi bi-check-all me-1"></i>All 10 Exercises Complete
+            </span>
+          </div>
+          <h1 class="display-4 fw-extrabold text-white mb-2">ASSIGNMENT 10 &mdash; Bootstrap</h1>
+          <p class="lead text-light text-opacity-75 mb-3" style="max-width: 680px;">
+            A comprehensive suite of 10 independent responsive web applications engineered using Bootstrap 5.3, official CDNs, modern CSS3 custom properties, and semantic HTML5.
+          </p>
+          <div class="d-flex flex-wrap align-items-center gap-3 text-light text-opacity-75 small">
+            <div><i class="bi bi-person-fill text-warning me-1"></i><strong>Student:</strong> Abhay Pratap Singh</div>
+            <div>&bull;</div>
+            <div><i class="bi bi-code-square text-info me-1"></i><strong>Tech:</strong> Bootstrap 5.3.3 CDN &bull; HTML5 &bull; CSS3</div>
+            <div>&bull;</div>
+            <div><i class="bi bi-files text-success me-1"></i><strong>Structure:</strong> 21 Separate Files (10 HTML + 10 CSS + Dashboard)</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4 text-lg-end">
+          <div class="bg-white bg-opacity-10 backdrop-blur p-4 rounded-4 border border-white border-opacity-20 text-start shadow-sm">
+            <div class="small text-uppercase text-light text-opacity-75 fw-semibold mb-1">Architecture Summary</div>
+            <div class="fs-4 fw-bold text-white mb-2">10 / 10 Verified</div>
+            <ul class="list-unstyled small text-light text-opacity-75 mb-0">
+              <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i>Separate HTML &amp; companion CSS</li>
+              <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i>Official Bootstrap 5.3.3 CDN</li>
+              <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i>Responsive Grid &amp; Breakpoints</li>
+              <li><i class="bi bi-check2 text-success me-1"></i>No local git push/commit executed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Exercises Grid Section -->
+  <main class="container my-5">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="h3 fw-bold text-dark mb-0">Assignment Exercises Index</h2>
+        <p class="text-secondary small mb-0">Click "Launch Preview" on any card to test the live exercise or review companion files.</p>
+      </div>
+      <div class="d-none d-md-block text-muted small">
+        <i class="bi bi-info-circle me-1"></i>Each exercise includes a back-link to this dashboard
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Exercise 1 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-primary-subtle text-primary">01</span>
+            <span class="badge bg-light text-secondary border">Company Landing Page</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Intro to Bootstrap</h4>
+          <p class="text-secondary small flex-grow-1">
+            Full-width header with responsive Bootstrap navbar, hero section with <code>.container</code>, <code>.row</code>, <code>.col-*</code>, prominent headline, and primary CTA.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.navbar-expand-lg</span>
+            <span class="code-badge">.container</span>
+            <span class="code-badge">.btn-primary</span>
+            <span class="code-badge">.row</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q1.html</code> + <code>q1.css</code></span>
+            <a href="q1.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-success-subtle text-success">02</span>
+            <span class="badge bg-light text-secondary border">Portfolio &amp; Utilities</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Personal Portfolio Basics</h4>
+          <p class="text-secondary small flex-grow-1">
+            Profile header with student name "Abhay Pratap Singh", circular avatar, "Hire Me" button group, and contact form utilizing Bootstrap form controls and utilities.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.img-fluid</span>
+            <span class="code-badge">.rounded-circle</span>
+            <span class="code-badge">.form-control</span>
+            <span class="code-badge">.p-5</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q2.html</code> + <code>q2.css</code></span>
+            <a href="q2.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 3 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-info-subtle text-info-emphasis">03</span>
+            <span class="badge bg-light text-secondary border">12-Column Grid</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Product Catalog Grid</h4>
+          <p class="text-secondary small flex-grow-1">
+            4-column responsive grid (desktop: <code>.col-md-3</code>, tablet: <code>.col-sm-6</code>, mobile: <code>.col-12</code>) featuring 4 gadget cards with price badges and hover lift depth.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.col-md-3</span>
+            <span class="code-badge">.card-img-top</span>
+            <span class="code-badge">.badge</span>
+            <span class="code-badge">.shadow-sm</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q3.html</code> + <code>q3.css</code></span>
+            <a href="q3.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 4 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-warning-subtle text-warning-emphasis">04</span>
+            <span class="badge bg-light text-secondary border">Tables &amp; Lists</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Restaurant Menu Page</h4>
+          <p class="text-secondary small flex-grow-1">
+            "Today's Menu" section styled with <code>.text-center</code> and <code>.lead</code>, striped hover table for dishes, Chef's Specials list group with active highlights, and featured food figure.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.table-striped</span>
+            <span class="code-badge">.table-hover</span>
+            <span class="code-badge">.list-group</span>
+            <span class="code-badge">&lt;figcaption&gt;</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q4.html</code> + <code>q4.css</code></span>
+            <a href="q4.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 5 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-teal-subtle text-success" style="background-color: #ccfbf1; color: #0f766e;">05</span>
+            <span class="badge bg-light text-secondary border">Bootstrap Theming</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Custom Themed Blog</h4>
+          <p class="text-secondary small flex-grow-1">
+            Custom brand theme overriding Bootstrap CSS variables (<code>--bs-primary: #0d9488</code>) and Google Font <code>Plus Jakarta Sans</code>, featuring themed cards, badges, and footer.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">--bs-primary</span>
+            <span class="code-badge">Google Fonts</span>
+            <span class="code-badge">.card</span>
+            <span class="code-badge">&lt;footer&gt;</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q5.html</code> + <code>q5.css</code></span>
+            <a href="q5.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 6 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-danger-subtle text-danger">06</span>
+            <span class="badge bg-light text-secondary border">Alerts &amp; Wells</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Notifications Dashboard</h4>
+          <p class="text-secondary small flex-grow-1">
+            Dashboard container grouping <code>.alert-success</code>, <code>.alert-info</code>, and dismissible <code>.alert-danger</code> with native <code>.btn-close</code>, plus modern summary well utilities.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.alert-success</span>
+            <span class="code-badge">.alert-dismissible</span>
+            <span class="code-badge">.btn-close</span>
+            <span class="code-badge">.bg-light .p-4</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q6.html</code> + <code>q6.css</code></span>
+            <a href="q6.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 7 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-primary-subtle text-primary">07</span>
+            <span class="badge bg-light text-secondary border">Badges &amp; Counts</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Task Tracker with Badges</h4>
+          <p class="text-secondary small flex-grow-1">
+            Interactive task manager list with priority badges (High <code>.bg-danger</code>, Medium <code>.bg-warning</code>, Low <code>.bg-success</code>), header task counter badge, and embedded action badge.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.list-group</span>
+            <span class="code-badge">.bg-danger</span>
+            <span class="code-badge">.bg-warning</span>
+            <span class="code-badge">.badge .rounded-pill</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q7.html</code> + <code>q7.css</code></span>
+            <a href="q7.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 8 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-secondary-subtle text-secondary-emphasis">08</span>
+            <span class="badge bg-light text-secondary border">Panels &amp; Cards</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Pricing Plans Section</h4>
+          <p class="text-secondary small flex-grow-1">
+            "Choose Your Plan" 3-column SaaS pricing grid (<code>.row</code> &amp; <code>.col-md-4</code>) for Basic, Pro, and Enterprise, with Pro plan accented in <code>.bg-primary .text-white</code> and hover transitions.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.col-md-4</span>
+            <span class="code-badge">.card-header</span>
+            <span class="code-badge">.shadow-lg</span>
+            <span class="code-badge">hover transition</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q8.html</code> + <code>q8.css</code></span>
+            <a href="q8.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 9 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-info-subtle text-primary">09</span>
+            <span class="badge bg-light text-secondary border">Pagination &amp; Pagers</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Blog Pagination &amp; Pager</h4>
+          <p class="text-secondary small flex-grow-1">
+            Center-aligned Bootstrap pagination (<code>.pagination .justify-content-center</code>) with Previous, 1, 2, Next, accompanied by a bottom pager using flex utilities and outline buttons.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.pagination</span>
+            <span class="code-badge">.page-item</span>
+            <span class="code-badge">.justify-content-center</span>
+            <span class="code-badge">.btn-outline-secondary</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q9.html</code> + <code>q9.css</code></span>
+            <a href="q9.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 10 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 exercise-card p-4 shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="q-number-pill bg-warning-subtle text-dark">10</span>
+            <span class="badge bg-light text-secondary border">Carousel &amp; Progress</span>
+          </div>
+          <h4 class="fw-bold text-dark mb-2">Travel Agency Showcase</h4>
+          <p class="text-secondary small flex-grow-1">
+            Bootstrap Carousel cycling across 3 travel destination slides at 3-second intervals (<code>data-bs-interval="3000"</code>), paired with an animated striped progress bar (70% booked) and semantic footer.
+          </p>
+          <div class="d-flex flex-wrap gap-1 mb-4">
+            <span class="code-badge">.carousel .slide</span>
+            <span class="code-badge">data-bs-interval="3000"</span>
+            <span class="code-badge">.progress-bar-animated</span>
+            <span class="code-badge">&lt;footer&gt;</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+            <span class="small text-muted"><code>q10.html</code> + <code>q10.css</code></span>
+            <a href="q10.html" class="btn btn-primary btn-sm rounded-pill px-3 fw-semibold">
+              Launch Preview <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Profile Card in Grid -->
+      <div class="col-12 col-md-6 col-lg-8">
+        <div class="card h-100 exercise-card p-4 bg-light border-dashed">
+          <div class="d-flex flex-column flex-sm-row align-items-center gap-4">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
+                 alt="Abhay Pratap Singh" 
+                 class="rounded-circle border border-3 border-primary shadow-sm" style="width: 90px; height: 90px; object-fit: cover;">
+            <div>
+              <span class="badge bg-primary text-white mb-1">Student Author</span>
+              <h4 class="fw-bold text-dark mb-1">Abhay Pratap Singh</h4>
+              <p class="text-secondary small mb-2">
+                B.Tech Computer Science &amp; Engineering &bull; Full Stack Specialization &bull; BridgeLabz 3Y
+              </p>
+              <p class="text-muted small mb-0">
+                All 10 assignment exercises have been thoroughly tested for responsive breakpoint behavior, semantic HTML5 structure, clean CSS companion styling, and Bootstrap 5 CDN integration.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Semantic Footer -->
+  <footer class="bg-dark text-white py-4 mt-5 border-top">
+    <div class="container text-center">
+      <p class="mb-1 fw-semibold">&copy; 2026 Abhay Pratap Singh &bull; Assignment 10: Bootstrap 5 Master Hub</p>
+      <small class="text-secondary">College of Engineering &bull; Full Stack Web Development</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

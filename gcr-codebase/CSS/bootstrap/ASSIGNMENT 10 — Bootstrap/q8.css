@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Assignment 10 - Question 8: Pricing Plans Companion Stylesheet
+   Author: Abhay Pratap Singh
+   Description: Card hover lifting transition with shadow-lg and Pro plan prominence.
+   ========================================================================== */
+
+.assignment-bar {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  background-color: #111827 !important;
+}
+
+/* Card Hover Lifting Transition */
+.pricing-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Pro Plan Distinct Visual Pop */
+.featured-pro-card {
+  background: linear-gradient(145deg, #0d6efd 0%, #0b5ed7 100%) !important;
+  transform: scale(1.03);
+  z-index: 2;
+  box-shadow: 0 15px 30px rgba(13, 110, 253, 0.3) !important;
+}
+
+.featured-pro-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 25px 45px rgba(13, 110, 253, 0.4) !important;
+}
+

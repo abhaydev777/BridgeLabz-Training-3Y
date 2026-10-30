@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Assignment 10 - Question 7: Task Tracker Companion Stylesheet
+   Author: Abhay Pratap Singh
+   Description: Enhances task items with smooth hover shifts, checkbox styling,
+                and distinct priority badge contrasts.
+   ========================================================================== */
+
+.assignment-bar {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  background-color: #111827 !important;
+}
+
+/* List Item Micro-Interactions */
+.list-group-item {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border-color: #e9ecef;
+}
+
+.list-group-item:hover {
+  background-color: #f8fafc;
+  transform: translateX(3px);
+}
+
+/* Custom Checkbox Size */
+.form-check-input {
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-width: 2px;
+}
+
+.form-check-input:checked {
+  background-color: #198754;
+  border-color: #198754;
+}
+
+/* Priority Badges Polish */
+.badge {
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
